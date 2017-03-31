@@ -1,5 +1,5 @@
 <ng-form name="constantInputForm" novalidate>
-    <div ng-class="{'has-error' : constantInputForm[editedName].$invalid , 'col-lg-9' : controlButtons}">
+    <div ng-class="{'has-error':constantInputForm[fieldName].$dirty &amp;&amp; constantInputForm[fieldName].$invalid, 'has-success':constantInputForm[fieldName].$valid , 'col-lg-9' : controlButtons}">
         <ui-select title="{{title}}" ng-if="::mode.edit || mode.new" ng-model="$parent.chosenConstant"
                    theme="bootstrap" on-select="handleConstantSelect($item, $model)"
                    ng-disabled="shouldDisable" name="{{::editedName}}" ng-required="{{::isRequired}}"
