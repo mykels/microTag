@@ -11,7 +11,7 @@ function formHeaderDirective() {
 			saveCallback: '&',
 			resetCallback: '&'
 		},
-		replace: true,
+		replace: false,
 		templateUrl: 'app/modules/core/views/form/form-header.html',
 		controller: 'FormHeaderController'
 	};

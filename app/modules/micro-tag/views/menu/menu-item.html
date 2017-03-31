@@ -1,0 +1,14 @@
+<li ng-class="{'active open' : isActiveRoute(menuItem.link)}">
+    <a ng-click="navigateTo(menuItem.link)">
+        <div class="item-content">
+            <div class="item-media">
+                <i class="{{menuItem.icon}}"></i>
+            </div>
+            <div class="item-inner">
+            <span class="title">
+            {{::menuItem.title}}
+            </span>
+            </div>
+        </div>
+    </a>
+</li>

@@ -1,9 +1,8 @@
-'use strict';
-
 angular.module("microTag")
-	.filter('htmlToPlaintext', function () {
-			return function (text) {
-				return String(text).replace(/<[^>]+>/gm, '');
-			};
-		}
-	);
+	.filter('htmlToPlaintext', htmlToPlaintextFilter);
+
+function htmlToPlaintextFilter() {
+	return function (text) {
+		return String(text).replace(/<[^>]+>/gm, '');
+	};
+}

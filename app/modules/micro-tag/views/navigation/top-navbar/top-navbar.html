@@ -1,0 +1,22 @@
+<header class="navbar navbar-default navbar-static-top hidden-print">
+    <div id="loading-bar-container"></div>
+
+    <mt-top-navbar-header></mt-top-navbar-header>
+
+    <div class="navbar-collapse collapse" uib-collapse="navbarCollapsed"
+         off-click="navbar.collapsed = true" off-click-if='!navbar.collapsed'
+         off-click-filter="#menu-toggler">
+        <ul class="nav navbar-right" ct-fullheight="window" data-ct-fullheight-exclusion="header"
+            data-ct-fullheight-if="isSmallDevice">
+
+            <mt-connection-status></mt-connection-status>
+
+            <mt-language-selector></mt-language-selector>
+
+        </ul>
+        <div class="close-handle visible-xs-block menu-toggler" ng-click="navbar.collapsed = true">
+            <div class="arrow-left"></div>
+            <div class="arrow-right"></div>
+        </div>
+    </div>
+</header>

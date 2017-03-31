@@ -1,7 +1,7 @@
 angular.module('microTag.core')
-    .controller('ConstantSelectorCtrl', constantSelectorCtrl);
+    .controller('ConstantSelectorController', constantSelectorController);
 
-function constantSelectorCtrl($scope, StringUtils, ObjectUtils) {
+function constantSelectorController($scope, StringUtils, ObjectUtils) {
     activate();
 
     function activate() {

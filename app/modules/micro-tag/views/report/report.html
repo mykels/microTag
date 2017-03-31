@@ -1,0 +1,92 @@
+<mt-header>
+    <button type="button" class="btn btn-primary"
+            ng-click="downloadReport()" ng-disabled="loadingIndicator.isLoading">
+        Download report
+    </button>
+</mt-header>
+
+<ng-form name="deviceConfigurationForm">
+    <mt-form>
+        <div class="col-md-4">
+            <mt-form-section section-title="Select report by date">
+                <div class="col-md-12">
+                    <div class="col-md-10">
+                        <div class="form-group">
+                            <div class="input-group range-picker">
+                                <div class="start-date">
+                                    <mt-datepicker chosen-date="startDate"></mt-datepicker>
+                                </div>
+                                <span class="input-group-addon">to</span>
+                                <div class="end-date">
+                                    <mt-datepicker chosen-date="endDate"></mt-datepicker>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <a class="btn btn-blue" href="#" ng-disabled="loadingIndicator.isLoading"
+                           ng-click="getReport(startDate.value, endDate.value)">
+                            <i class="ti-search"></i>
+                        </a>
+                    </div>
+                </div>
+            </mt-form-section>
+        </div>
+
+        <div ng-if="reportRecords" class="col-md-12">
+            <mt-form-section section-title="Report result">
+                <div ng-if="reportRecords.length > 0" class="table-responsive">
+                    <table class="table table-bordered table-hover table-striped" id="report-table">
+                        <thead>
+                        <tr>
+                            <th>DATE</th>
+                            <th>RESULT</th>
+                            <th>AMP</th>
+                            <th>SNR</th>
+                            <th>TAG ID</th>
+                            <th>S/W ID</th>
+                            <th>H/W ID</th>
+                            <th>SERIAL</th>
+                            <th>E-SIGNATURE</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="reportRecord in reportRecords">
+                            <td>
+                                {{::reportRecord.date | date:'dd/MM/yyyy HH'}}
+                            </td>
+                            <td>
+                                {{::reportRecord.result}}
+                            </td>
+                            <td>
+                                {{::reportRecord.amp}}
+                            </td>
+                            <td>
+                                {{::reportRecord.snr}}
+                            </td>
+                            <td>
+                                {{::reportRecord.tagId}}
+                            </td>
+                            <td>
+                                {{::reportRecord.swId}}
+                            </td>
+                            <td>
+                                {{::reportRecord.hwId}}
+                            </td>
+                            <td>
+                                {{::reportRecord.serial}}
+                            </td>
+                            <td>
+                                {{::reportRecord.eSignature}}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div ng-if="reportRecords.length === 0">
+                    <h3>No Results found</h3>
+                </div>
+            </mt-form-section>
+        </div>
+    </mt-form>
+</ng-form>

@@ -6,8 +6,8 @@ angular.module('microTag.core')
 		defaultProtocol: "http",
 		defaultHost: "localhost",
 		defaultPort: "8080",
-		rootContext: "MicroTag",
-		appName: "MicroTag",
+		rootContext: "μicroTag",
+		appName: "μicroTag",
 		version: '0.1',
 		isMobile: (function () {// true if the browser is a mobile device
 			return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);

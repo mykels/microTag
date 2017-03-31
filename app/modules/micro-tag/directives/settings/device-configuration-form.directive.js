@@ -5,7 +5,7 @@ function deviceConfigurationFormDirective() {
 	return {
 		restrict: 'AE',
 		scope: {},
-		templateUrl: 'app/modules/micro-tag/views/settings/deviceConfigurationForm.html',
+		templateUrl: 'app/modules/micro-tag/views/settings/device-configuration-form.html',
 		controller: 'DeviceConfigurationFormController'
 	};
 }
