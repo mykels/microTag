@@ -1,0 +1,37 @@
+<ng-form name="constantInputForm" novalidate>
+    <div ng-class="{'has-error' : constantInputForm[editedName].$invalid , 'col-lg-9' : controlButtons}">
+        <ui-select title="{{title}}" ng-if="::mode.edit || mode.new" ng-model="$parent.chosenConstant"
+                   theme="bootstrap" on-select="handleConstantSelect($item, $model)"
+                   ng-disabled="shouldDisable" name="{{::editedName}}" ng-required="{{::isRequired}}"
+                   search-enabled="::searchEnabled">
+            <ui-select-match placeholder="{{::constantPlaceholder}}" allow-clear="::false">
+                <div ng-if="::hideValue" ng-bind-html="$select.selected.icon + $select.selected.text | trusted"></div>
+                <div ng-if="::!hideValue">
+                    {{$select.selected.icon + $select.selected.value}}
+                </div>
+            </ui-select-match>
+            <ui-select-choices
+                    repeat="constant in constants | filter:constantMatch($select.search) track by constant.value"
+                    refresh-delay="0" position="down">
+                <div ng-if="::!hideValue" ng-bind-html="constant.icon + constant.value | highlight: $select.search">
+                    <small ng-if="constant.text.length > 0">
+                        {{::constant.icon + constant.text}}
+                    </small>
+                    {{::constant.icon + constant.text}}
+                </div>
+                <div ng-if="::hideValue">
+                    <div ng-bind-html="::constant.icon + constant.text | trusted | highlight: $select.search"></div>
+                </div>
+
+            </ui-select-choices>
+        </ui-select>
+    </div>
+</ng-form>
+
+<div ng-if="::mode.details && hideValue">
+    {{::chosenConstant.text}}
+</div>
+
+<div ng-if="::mode.details && !hideValue">
+    {{::chosenConstant.value}}
+</div>

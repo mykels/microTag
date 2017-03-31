@@ -10,3 +10,112 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+*.log
+
+# IntelliJ files
+# User-specific stuff:
+.idea/workspace.xml
+.idea/misc.xml
+.idea/tasks.xml
+.idea/dictionaries
+.idea/vcs.xml
+.idea/jsLibraryMappings.xml
+.idea/libraries/Build_jars.xml
+.idea/libraries/lib.xml
+.idea/libraries/lib1.xml
+
+# Sensitive or high-churn files:
+.idea/dataSources/
+.idea/dataSources.ids
+.idea/dataSources.xml
+.idea/dataSources.local.xml
+.idea/sqlDataSources.xml
+.idea/dynamic.xml
+.idea/uiDesigner.xml
+
+# Windows shortcuts
+*.lnk
+
+# Java files
+build/
+WebContent/WEB-INF/manager.log
+
+# ServiceManager files
+WebContent/www/*.html
+WebContent/www/img/**/*
+WebContent/www/js/**/*
+WebContent/www/json/**/*
+WebContent/*.orp
+WebContent/WEB-INF/lib/ivy*
+ivy.jar
+
+# =========================
+# Operating System Files
+# =========================
+
+# OSX
+# =========================
+
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+
+# Eclipse files
+*.project
+.classpath
+.settings/
+.externalToolBuilders/
+
+# ServiceManager docs
+doc/
+
+node_modules/
+
+ServiceManager/
+WebContent/www/auraplayer/app/modules/auraTester/controllers/editors/testCase/monitor/
+WebContent/www/auraplayer/app/modules/auraTester/directives/editors/testCase/monitor/
+WebContent/www/auraplayer/app/modules/auraTester/services/testCase/monitor/agent/
+WebContent/www/img/
+WebContent/www/js/
+WebContent/www/json/
+classes/artifacts/
+null/
+.idea/ant.xml
+.idea/artifacts/
+.idea/copyright/
+.idea/inspectionProfiles/
+WebContent/www/.idea/
+WebContent/www/auraplayer/.idea/
+
+.idea/
