@@ -6,6 +6,7 @@ function detailsDirective() {
         restrict: 'AE',
         scope: {},
         transclude: true,
-        template: '<dl class="dl-horizontal"><div ng-transclude></div></dl>'
+        template: '<dl class="dl-horizontal"><div ng-transclude></div></dl>',
+	    controller: "DetailsController"
     };
 }

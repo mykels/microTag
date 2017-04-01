@@ -1,0 +1,25 @@
+<div class="form-header col-lg-12">
+    <a class="col-lg-1 btn btn-default no-margin" href ng-click="handleGoToBeginning()"
+       ng-disabled="logTopIndex.value === 0">
+        <span class="ti-arrow-up" style="transform: rotate(180deg);"></span>
+    </a>
+    <a class="col-lg-1 btn btn-default no-margin" href ng-click="handleGoToEnd()"
+       ng-disabled="logTopIndex.value >= dynamicLogs.logCount - 50">
+        <span class="ti-arrow-down" style="transform: rotate(180deg);"></span>
+    </a>
+    <div class="col-lg-10">
+        <input class="form-control" type="text" ng-model="logFilter.value"
+               placeholder="filter logs.." autofocus ng-model-options="::{debounce:20}"/>
+    </div>
+</div>
+
+<div class="col-lg-12">
+    <md-virtual-repeat-container ng-if="logs.length > 0" class="log-container" md-top-index="logTopIndex.value">
+        <div md-virtual-repeat="logLine in dynamicLogs" md-on-demand
+             class="repeated-log">
+            <div class="{{logLine.level.toLowerCase() + '-log'}}">
+                <h6>{{logLine.value}}</h6>
+            </div>
+        </div>
+    </md-virtual-repeat-container>
+</div>

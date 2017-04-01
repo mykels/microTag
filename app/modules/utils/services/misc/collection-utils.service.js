@@ -1,6 +1,5 @@
 angular.module('microTag.utils')
 	.service('CollectionUtils', collectionUtilsService);
-
 function collectionUtilsService($timeout, ObjectUtils) {
 	var self = this;
 

@@ -21,14 +21,15 @@
                                      field-type='text' field-model="deviceConfig.secureServer">
                 </mt-form-input-field>
                 <mt-form-field field-title="Logging level" field-name="loggingLevel">
-                    <mt-constant-selector constants="logLevels" chosen-constant="deviceConfig.logLevel" is-required="true">
+                    <mt-constant-selector constants="logLevels" chosen-constant="deviceConfig.logLevel"
+                                          is-required="true">
                     </mt-constant-selector>
                 </mt-form-field>
                 <mt-form-field field-title="Volume" field-name="volume">
-                    <rzslider rz-slider-model="deviceConfig.volume"></rzslider>
+                    <mt-slider slider-model="deviceConfig.volume"></mt-slider>
                 </mt-form-field>
                 <mt-form-field field-title="LCD brightness" field-name="lcdBrightness">
-                    <rzslider rz-slider-model="deviceConfig.lcdBrightness"></rzslider>
+                    <mt-slider slider-model="deviceConfig.lcdBrightness"></mt-slider>
                 </mt-form-field>
             </mt-form-section>
         </div>

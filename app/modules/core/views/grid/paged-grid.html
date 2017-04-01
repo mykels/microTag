@@ -1,0 +1,33 @@
+<div class="col-lg-12 paged-table-header">
+    <div class="pull-right">
+        <input type="search" class="form-control input-sm" placeholder="search.."
+               ng-model="filterValue" ng-model-options="::{debounce : 50}"/>
+    </div>
+</div>
+
+<div class="col-lg-12">
+    <div ui-grid="gridOptions" class="grid aura-grid" ui-grid-pagination ui-grid-selection
+         ui-grid-auto-resize ui-grid-resize-columns ui-grid-draggable-rows
+         ng-style="{height : gridHeight}">
+    </div>
+</div>
+
+<div class="col-lg-12">
+    <span paging page="gridOptions.paginationCurrentPage"
+          page-size="gridOptions.paginationPageSize" total="entities.length"
+          paging-action="onPaginationChange(page, pageSize, total)"
+          show-prev-next="::true" show-first-last="::true">
+    </span>
+
+    <span ng-if="tableActions.length > 0" class="pull-right pagination paged-grid-actions">
+    	<span ng-repeat="action in tableActions track by action.name">
+	   		<button title="{{::action.description}}" ng-click="action.click()"
+                    class="btn btn-sm btn-default">{{::action.name}}
+	   		</button>
+   		</span>
+	</span>
+</div>
+
+<div class="col-lg-12 action-row bordered-row entity-counter">
+    Showing {{paginationStart}} to {{paginationEnd}} of {{entities.length}} entities
+</div>

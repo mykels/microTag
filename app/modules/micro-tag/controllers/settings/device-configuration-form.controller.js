@@ -18,8 +18,8 @@ function deviceConfigurationFormController($scope, DeviceConfigurationService, L
 			wifiApPassword: 'michaWifi',
 			mdDnsName: 'localhost.micha.home',
 			secureServer: 'localhost:55996',
-			volume: 10,
-			lcdBrightness: 10,
+			volume: 5,
+			lcdBrightness: 7,
 			logLevel: LogLevels.default
 		};
 	}

@@ -1,1 +1,17 @@
-this is logs!
+<mt-form>
+    <div class="col-md-6">
+        <mt-form-section section-title="Select log file(s)">
+            <mt-log-grid log-files="logFiles"></mt-log-grid>
+        </mt-form-section>
+    </div>
+</mt-form>
+
+<mt-form>
+    <div class="col-md-11">
+        <mt-form-section section-title="{{logFileName}}">
+            <mt-log-viewer ng-if="viewedLogs.length > 0" logs="viewedLogs"></mt-log-viewer>
+            <h5 ng-if="!loadingIndicator.isLoading && !(angular.isDefined(viewedLogs) && viewedLogs.length > 0)">No logs</h5>
+            <h5 ng-if="loadingIndicator.isLoading">Loading logs ...</h5>
+        </mt-form-section>
+    </div>
+</mt-form>

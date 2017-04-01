@@ -17,7 +17,25 @@ function routesConfig($routeProvider) {
 		})
 		.when('/logs', {
 			templateUrl: 'app/modules/micro-tag/views/log/logs.html',
-			controller: 'LogsController'
+			controller: 'LogsController',
+			resolve: {
+				logFiles: function(LogService){
+					return LogService.getLogFiles();
+				}
+			}
+		})
+		.when('/logs/:logFileName', {
+			templateUrl: 'app/modules/micro-tag/views/log/logs.html',
+			controller: 'LogsController',
+			resolve: {
+				logFiles: function(LogService){
+					return LogService.getLogFiles();
+				}
+			}
+		})
+		.when('/charts', {
+			templateUrl: 'app/modules/micro-tag/views/charts/charts.html',
+			controller: 'ChartsController'
 		})
 		.otherwise({
 			redirectTo: '/terminal'

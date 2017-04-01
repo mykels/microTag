@@ -14,7 +14,8 @@ function sideNavbarController($scope, MenuItemBuilder) {
 			MenuItemBuilder.build('Terminal', 'ti-tablet'),
 			MenuItemBuilder.build('Settings', 'ti-settings'),
 			MenuItemBuilder.build('Report', 'ti-blackboard'),
-			MenuItemBuilder.build('Logs', 'ti-book')
+			MenuItemBuilder.build('Logs', 'ti-book'),
+			MenuItemBuilder.build('Charts', 'ti-bar-chart')
 		];
 	}
 }

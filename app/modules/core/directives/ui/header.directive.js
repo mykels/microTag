@@ -6,6 +6,7 @@ function headerDirective() {
 		restrict: 'AE',
 		transclude: true,
 		replace: false,
-		templateUrl: 'app/modules/core/views/ui/header.html'
+		templateUrl: 'app/modules/core/views/ui/header.html',
+		controller: "HeaderController"
 	};
 }

@@ -411,7 +411,7 @@ h5.over-title {
 
 .navbar .navbar-header .navbar-brand img {
     display: inline-block;
-    margin-top: -6px;
+    margin-top: -3px;
 }
 
 .navbar .navbar-header .menu-toggler {
@@ -12599,4 +12599,172 @@ td.small-width {
 
 .btn-fixed-small {
     width: 15em;
+}
+
+/******** ui grid overrides ***********/
+
+.ui-grid-render-container-body .ui-grid-row:nth-child(odd):hover .ui-grid-cell {
+    background: rgb(232, 232, 232) none repeat scroll 0% 0%
+}
+
+.ui-grid-render-container-body .ui-grid-row:nth-child(even):hover .ui-grid-cell {
+    background: rgb(232, 232, 232) none repeat scroll 0% 0%
+}
+
+.ui-grid-cell {
+    min-height: 21px !important;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.ui-grid-cell-contents {
+    padding: 7px !important;
+    min-height: 21px !important;
+}
+
+.ui-grid-row .ui-grid-cell.ui-grid-row-header-cell {
+    border-bottom: none !important;
+}
+
+div.ui-grid-cell input {
+    border-radius: inherit;
+    padding: inherit;
+    width: inherit;
+    color: inherit;
+    height: inherit;
+    font: inherit;
+    outline: inherit;
+}
+
+.ui-grid-draggable-row-target {
+    opacity: 0.5 !important;
+}
+
+.ui-grid-draggable-row {
+    min-height: 30px;
+}
+
+.ui-grid-draggable-row-over {
+    position: relative;
+}
+
+.ui-grid-draggable-row-over:before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    background: #d1d1d1;
+    border-bottom: 2px dashed #919191;
+}
+
+.ui-grid-draggable-row-over--above:before {
+    top: 0;
+}
+
+.ui-grid-draggable-row-over--below:before {
+    bottom: 0;
+}
+
+/******** aura grid ***********/
+
+.paged-grid-container {
+    height: 605px;
+}
+
+.paged-grid-actions {
+    padding-right: 15px;
+}
+
+.paged-table-header {
+    margin-bottom: 5px;
+    padding: 4px 12px 4px 4px;
+}
+
+.aura-grid {
+    height: 400px;
+    overflow: hidden !important;
+}
+
+.aura-grid-cell {
+    padding: 3px;
+    line-height: 1.42857143;
+    min-height: 42px !important;
+    border-right: none !important;
+    height: 100% !important;
+}
+
+.selection-cell-contents {
+    padding: 1px !important;
+}
+
+.aura-grid-selected {
+    background: rgb(232, 232, 232) none repeat scroll 0% 0% !important;
+}
+
+.ui-grid-cell {
+    overflow: inherit !important;
+}
+
+.aura-grid-column {
+    padding: 3px;
+    margin: 3px;
+}
+
+.ui-grid-row .ui-grid-cell.ui-grid-row-header-cell {
+    background: none;
+}
+
+.action-button {
+    margin: 2px 2px 2px 2px;
+}
+
+.link-button {
+    color: #f2f2f2;
+    text-decoration: none;
+}
+
+.narrow-column {
+    width: 2%;
+}
+
+.small-column {
+    width: 5%;
+}
+
+.semi-wide-column {
+    width: 13%;
+}
+
+.medium-column {
+    width: 15px;
+}
+
+.wide-column {
+    width: 25px;
+}
+
+/******** log viewer related ***********/
+
+.log-container {
+    height: 800px;
+}
+
+.repeated-log {
+    border-bottom: 1px solid #ddd;
+    box-sizing: border-box;
+    min-height: 30px;
+    padding-top: 5px;
+}
+
+.debug-log {
+    color: #a394ac
+}
+
+.normal-log {
+    color: #7f9fc0
+
 }
