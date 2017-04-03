@@ -24,7 +24,7 @@
                         </div>
                     </div>
                     <div class="col-md-2">
-                        <a class="btn btn-blue" href="#" ng-disabled="loadingIndicator.isLoading"
+                        <a class="btn btn-blue" href ng-disabled="loadingIndicator.isLoading"
                            ng-click="getReport(startDate.value, endDate.value)">
                             <i class="ti-search"></i>
                         </a>
@@ -35,6 +35,7 @@
 
         <div ng-if="reportRecords" class="col-md-12">
             <mt-form-section section-title="Report result">
+                <!--TODO: reimplement using report grid-->
                 <div ng-if="reportRecords.length > 0" class="table-responsive">
                     <table class="table table-bordered table-hover table-striped" id="report-table">
                         <thead>

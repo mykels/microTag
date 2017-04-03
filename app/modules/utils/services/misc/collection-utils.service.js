@@ -1,5 +1,6 @@
 angular.module('microTag.utils')
 	.service('CollectionUtils', collectionUtilsService);
+
 function collectionUtilsService($timeout, ObjectUtils) {
 	var self = this;
 
@@ -148,4 +149,20 @@ function collectionUtilsService($timeout, ObjectUtils) {
 			onLoadTrigger();
 		}
 	};
+
+	this.join = function (collection, delimiter) {
+		var joint = '';
+
+		if (self.isEmpty(collection)) {
+			return joint;
+		}
+
+		var fixedDelimiter = ObjectUtils.defaultValue(delimiter, '');
+
+		collection.forEach(function (item) {
+			joint += fixedDelimiter + item;
+		});
+
+		return joint;
+	}
 }

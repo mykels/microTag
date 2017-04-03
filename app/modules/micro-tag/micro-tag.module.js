@@ -1,3 +1,4 @@
 angular.module('microTag', [
-	'microTag.core'
+	'microTag.core',
+	'microTag.templates'
 ]);

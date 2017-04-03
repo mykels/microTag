@@ -1,0 +1,8 @@
+<div ng-if="logFiles.length > 0">
+    <mt-paged-grid entities="logFiles" column-defs="::columnDefs"
+                   filtered-columns="::filteredColumns">
+    </mt-paged-grid>
+</div>
+<div ng-if="!(logFiles.length > 0)">
+    <h3>No Logs found</h3>
+</div>

@@ -1,18 +1,13 @@
 angular.module('microTag')
 	.controller('MainController', mainController);
 
-function mainController($scope, $route, $window, SystemLoader, System, StringUtils) {
+function mainController($scope, $window, SystemLoader, System, StringUtils) {
 	activate();
 
 	function activate() {
 		SystemLoader.load();
-		rerenderView();
 		$scope.layout = System.layout;
 		$scope.isMobile = System.isMobile;
-	}
-
-	function rerenderView() {
-		$route.reload();
 	}
 
 	var $win = $($window);

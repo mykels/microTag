@@ -8,156 +8,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <meta name="HandheldFriendly" content="true"/>
     <meta name="apple-touch-fullscreen" content="yes"/>
-    <title>MicroTag</title>
+    <title>μicroTag</title>
 
-    <link href="assets/fonts/google-fonts.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="vendor/themify-icons/css/themify-icons.css">
-    <link rel="stylesheet" href="vendor/angular-loading-bar/loading-bar.min.css">
-    <link rel="stylesheet" href="vendor/angular-terminal/vtortola.ng-terminal.css">
-    <link rel="stylesheet" href="vendor/angular-toaster/angular-toastr.min.css">
-    <link rel="stylesheet" href="vendor/angular-material/angular-material.min.css">
-    <link rel="stylesheet" href="vendor/ui-select/select.min.css">
-    <link rel="stylesheet" href="vendor/animate.css/animate.min.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/plugins.css">
-    <link rel="stylesheet" data-ng-href="assets/css/themes/main-theme.css"/>
-    <link rel="stylesheet" href="vendor/perfect-scrollbar/css/perfect-scrollbar.min.css">
-    <link rel="stylesheet" href="vendor/ui-grid/ui-grid.min.css">
+    <!-- vendor css distribution -->
+    <link href="dist/vendor/css/vendor.css" rel="stylesheet" type="text/css"/>
+
+    <!-- app css distribution -->
+    <link href="dist/css/micro-tag.css" rel="stylesheet" type="text/css"/>
 
 </head>
 
 <body class="ng-cloak">
 <mt-main></mt-main>
 
+<!-- vendor angular distribution -->
+<!--TODO: import jquery before angular-->
 <script src="vendor/jquery/dist/jquery.min.js"></script>
-<script src="vendor/angular/angular.js"></script>
-<script src="vendor/angular-route/angular-route.min.js"></script>
-<script src="vendor/angular-cookies/angular-cookies.js"></script>
-<script src="vendor/angular-animate/angular-animate.js"></script>
-<script src="vendor/angular-aria/angular-aria.min.js"></script>
-<script src="vendor/angular-touch/angular-touch.js"></script>
-<script src="vendor/angular-sanitize/angular-sanitize.js"></script>
-<script src="vendor/ngstorage/ngStorage.min.js"></script>
-<script src="vendor/angular-loading-bar/loading-bar.min.js"></script>
-<script src="vendor/angular-scroll/angular-scroll.min.js"></script>
-<script src="vendor/angular-terminal/vtortola.ng-terminal.js"></script>
-<script src="vendor/angular-toaster/angular-toastr.tpls.min.js"></script>
-<script src="vendor/angular-material/angular-material.min.js"></script>
-<script src="vendor/ui-select/select.min.js"></script>
-<script src="vendor/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js"></script>
-<script src="vendor/underscore/underscore-min.js"></script>
-<script src="vendor/ui-bootstrap/ui-bootstrap-tpls-2.5.0.min.js"></script>
-<script src="vendor/ui-grid/ui-grid.min.js"></script>
-<script src="vendor/angular-paging/paging.min.js"></script>
+<script src="dist/vendor/angular/angular.js"></script>
 
-<script src="app/modules/micro-tag/micro-tag.module.js"></script>
-<script src="app/modules/micro-tag/routes/micro-tag.routes.js"></script>
-<script src="app/modules/micro-tag/controllers/main/main.controller.js"></script>
-<script src="app/modules/micro-tag/controllers/main/main-content.controller.js"></script>
-<script src="app/modules/micro-tag/controllers/settings/device-configuration-form.controller.js"></script>
-<script src="app/modules/micro-tag/controllers/bootstrap.controller.js"></script>
-<script src="app/modules/micro-tag/controllers/terminal/terminal.controller.js"></script>
-<script src="app/modules/micro-tag/controllers/settings/settings.controller.js"></script>
-<script src="app/modules/micro-tag/controllers/log/logs.controller.js"></script>
-<script src="app/modules/micro-tag/controllers/log/log-grid.controller.js"></script>
-<script src="app/modules/micro-tag/controllers/log/log-viewer.controller.js"></script>
-<script src="app/modules/micro-tag/controllers/report/report.controller.js"></script>
-<script src="app/modules/micro-tag/controllers/footer/footer.controller.js"></script>
-<script src="app/modules/micro-tag/controllers/navigation/side-navbar/side-navbar.controller.js"></script>
-<script src="app/modules/micro-tag/controllers/navigation/top-navbar/top-navbar.controller.js"></script>
-<script src="app/modules/micro-tag/controllers/navigation/top-navbar/top-navbar-header.controller.js"></script>
-<script src="app/modules/micro-tag/controllers/navigation/top-navbar/widgets/connection-status.controller.js"></script>
-<script src="app/modules/micro-tag/controllers/navigation/top-navbar/widgets/language-selector.controller.js"></script>
-<script src="app/modules/micro-tag/controllers/menu/menu-item.controller.js"></script>
-<script src="app/modules/micro-tag/controllers/menu/menu-search.controller.js"></script>
-<script src="app/modules/micro-tag/controllers/charts/charts.controller.js"></script>
-<script src="app/modules/micro-tag/directives/main/main.directive.js"></script>
-<script src="app/modules/micro-tag/directives/main/main-content.directive.js"></script>
-<script src="app/modules/micro-tag/directives/settings/device-configuration-form.directive.js"></script>
-<script src="app/modules/micro-tag/directives/footer/footer.directive.js"></script>
-<script src="app/modules/micro-tag/directives/navigation/side-navbar/side-navbar.directive.js"></script>
-<script src="app/modules/micro-tag/directives/navigation/top-navbar/top-navbar.directive.js"></script>
-<script src="app/modules/micro-tag/directives/navigation/top-navbar/top-navbar-header.directive.js"></script>
-<script src="app/modules/micro-tag/directives/navigation/top-navbar/widgets/connection-status.directive.js"></script>
-<script src="app/modules/micro-tag/directives/navigation/top-navbar/widgets/language-selector.directive.js"></script>
-<script src="app/modules/micro-tag/directives/menu/menu-item.directive.js"></script>
-<script src="app/modules/micro-tag/directives/menu/menu-search.directive.js"></script>
-<script src="app/modules/micro-tag/directives/log/log-viewer.directive.js"></script>
-<script src="app/modules/micro-tag/directives/log/log-grid.directive.js"></script>
-<script src="app/modules/micro-tag/services/settings/device-configuration.service.js"></script>
-<script src="app/modules/micro-tag/services/report/report.service.js"></script>
-<script src="app/modules/micro-tag/services/user/user.service.js"></script>
-<script src="app/modules/micro-tag/services/menu/menu-item-builder.service.js"></script>
-<script src="app/modules/micro-tag/services/log/log.service.js"></script>
+<!-- vendor js distribution -->
+<script src="dist/vendor/js/vendor.js"></script>
 
-<!--TODO: check which are mandatory-->
-<script src="app/modules/micro-tag/directives/toggle.js"></script>
-<script src="app/modules/micro-tag/directives/empty-links.js"></script>
-<script src="app/modules/micro-tag/directives/sidebars.js"></script>
-<script src="app/modules/micro-tag/directives/off-click.js"></script>
-<script src="app/modules/micro-tag/directives/full-height.js"></script>
-<script src="app/modules/micro-tag/directives/panel-tools.js"></script>
-<script src="app/modules/micro-tag/directives/char-limit.js"></script>
-<script src="app/modules/micro-tag/directives/dismiss.js"></script>
-<script src="app/modules/micro-tag/directives/compare-to.js"></script>
-<script src="app/modules/micro-tag/directives/select.js"></script>
-<script src="app/modules/micro-tag/directives/messages.js"></script>
-<script src="app/modules/micro-tag/directives/chat.js"></script>
-<script src="app/modules/micro-tag/directives/sparkline.js"></script>
-<script src="app/modules/micro-tag/directives/touchspin.js"></script>
-<script src="app/modules/micro-tag/directives/file-upload.js"></script>
-<script src="app/modules/core/core.module.js"></script>
-<script src="app/modules/core/config/loading-bar/loading-bar.config.js"></script>
-<script src="app/modules/core/config/toast/toastr.config.js"></script>
-<script src="app/modules/core/config/q/q-provider.config.js"></script>
-<script src="app/modules/core/constants/system/system.constant.dev.js"></script>
-<script src="app/modules/core/constants/media/media.constant.js"></script>
-<script src="app/modules/core/controllers/form/form.controller.js"></script>
-<script src="app/modules/core/controllers/form/form-header.controller.js"></script>
-<script src="app/modules/core/controllers/form/form-section.controller.js"></script>
-<script src="app/modules/core/controllers/form/form-field.controller.js"></script>
-<script src="app/modules/core/controllers/form/form-input-field.controller.js"></script>
-<script src="app/modules/core/controllers/selectors/constant-selector.controller.js"></script>
-<script src="app/modules/core/controllers/datepicker/datepicker.controller.js"></script>
-<script src="app/modules/core/controllers/ui/detail.controller.js"></script>
-<script src="app/modules/core/controllers/ui/details.controller.js"></script>
-<script src="app/modules/core/controllers/ui/header.controller.js"></script>
-<script src="app/modules/core/controllers/ui/checkbox.controller.js"></script>
-<script src="app/modules/core/controllers/ui/slider.controller.js"></script>
-<script src="app/modules/core/controllers/grid/paged-grid.controller.js"></script>
-<script src="app/modules/core/controllers/actions/action-panel.controller.js"></script>
-<script src="app/modules/core/services/system/system-loader.service.js"></script>
-<script src="app/modules/core/services/loading/loading.service.js"></script>
-<script src="app/modules/core/services/toast/toast.service.js"></script>
-<script src="app/modules/core/services/navigation/navigator.service.js"></script>
-<script src="app/modules/core/services/actions/action-builder.service.js"></script>
-<script src="app/modules/core/directives/ui/perfect-scrollbar.js"></script>
-<script src="app/modules/core/directives/ui/details.directive.js"></script>
-<script src="app/modules/core/directives/ui/detail.directive.js"></script>
-<script src="app/modules/core/directives/ui/header.directive.js"></script>
-<script src="app/modules/core/directives/ui/checkbox.directive.js"></script>
-<script src="app/modules/core/directives/ui/slider.directive.js"></script>
-<script src="app/modules/core/directives/form/form.directive.js"></script>
-<script src="app/modules/core/directives/form/form-header.directive.js"></script>
-<script src="app/modules/core/directives/form/form-section.directive.js"></script>
-<script src="app/modules/core/directives/form/form-field.directive.js"></script>
-<script src="app/modules/core/directives/form/form-input-field.directive.js"></script>
-<script src="app/modules/core/directives/selectors/constant-selector.directive.js"></script>
-<script src="app/modules/core/directives/datepicker/datepicker.directive.js"></script>
-<script src="app/modules/core/directives/grid/paged-grid.directive.js"></script>
-<script src="app/modules/core/directives/actions/action-panel.directive.js"></script>
-<script src="app/modules/core/constants/log/log-levels.constant.js"></script>
-<script src="app/modules/core/filters/simple-date.filter.js"></script>
-<script src="app/modules/core/filters/trusted.filter.js"></script>
-<script src="app/modules/utils/utils.module.js"></script>
-<script src="app/modules/utils/services/misc/object-utils.service.js"></script>
-<script src="app/modules/utils/services/misc/collection-utils.service.js"></script>
-<script src="app/modules/utils/services/misc/string-utils.service.js"></script>
-<script src="app/modules/utils/services/document/document-utils.service.js"></script>
-<script src="app/modules/utils/services/constants/constant-utils.service.js"></script>
-<script src="app/modules/utils/services/files/file-downloader.service.js"></script>
+<!-- app js distribution -->
+<script src="dist/js/micro-tag.js"></script>
 
 </body>
 
