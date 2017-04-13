@@ -1,0 +1,47 @@
+<div class="row">
+    <div class="pull-right col-lg-3 paged-table-header">
+        <input type="search" class="form-control input-sm" placeholder="{{('FIND' | translate) + ' ...'}}"
+               ng-model="filterValue" ng-model-options="::{debounce : 50}"/>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div ui-grid="gridOptions" class="grid micro-tag-grid" ui-grid-pagination ui-grid-selection
+             ui-grid-auto-resize ui-grid-resize-columns ui-grid-draggable-rows ui-grid-exporter
+             ng-style="{height : gridHeight}">
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+    <span paging page="gridOptions.paginationCurrentPage"
+          page-size="gridOptions.paginationPageSize" total="entities.length"
+          paging-action="onPaginationChange(page, pageSize, total)"
+          show-prev-next="::true" show-first-last="::true">
+    </span>
+
+        <span ng-if="tableActions.length > 0" class="pull-right pagination paged-grid-actions">
+    	<span ng-repeat="action in tableActions track by action.name">
+	   		<button title="{{::action.description}}" ng-click="action.click()"
+                    class="btn btn-sm btn-default">{{::action.name}}
+	   		</button>
+   		</span>
+	</span>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12 action-row bordered-row data-counter">
+        {{"SHOWING" | translate}}
+        <strong>{{paginationStart}}</strong>
+        {{"TO" | translate}}
+        <strong>{{paginationEnd}}</strong>
+        {{"OF" | translate}}
+        <strong>{{entities.length}}</strong>
+        {{"ROWS" | translate}}
+    </div>
+</div>
+
+

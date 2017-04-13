@@ -1,0 +1,37 @@
+<div layout="row" class="dialog-header" layout-wrap layout-padding>
+    <div flex="10">
+        <i ng-if="::warningDialog" class="ti-alert"></i>
+    </div>
+    <div flex="80">
+        <h4>{{::title}}</h4>
+    </div>
+</div>
+
+<div class="dialog-body">
+    <div ng-transclude></div>
+</div>
+
+<div class="dialog-footer" ng-hide="::footerVisible===false">
+    <div class="pull-right dialog-actions">
+    	<span title="{{saveAllowed ? '' : 'Invalid fields marked in red'}}">
+	        <button class="btn {{::saveClass}}" ng-if="::saveVisible"
+                    ng-click="handleSave()" ng-disabled="!saveAllowed">
+	            <div ng-if="::saveLabel">
+	                {{::saveLabel}}
+	            </div>
+	            <div ng-if="::!saveLabel">
+	                Save
+	            </div>
+	        </button>
+	    </span>
+        <button title="" class="btn {{::cancelClass}}" ng-if="::cancelVisible"
+                ng-click="handleCancel()">
+            <div ng-if="::cancelLabel">
+                {{::cancelLabel}}
+            </div>
+            <div ng-if="::!cancelLabel">
+                Cancel
+            </div>
+        </button>
+    </div>
+</div>

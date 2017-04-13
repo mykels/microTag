@@ -1,0 +1,14 @@
+<li ng-class="{'active open' : isActiveRoute(menuItem.link)}">
+    <a ng-click="handleNavigation(menuItem.link)">
+        <div class="item-content">
+            <div class="item-media">
+                <i class="{{::menuItem.icon}}"></i>
+            </div>
+            <div class="item-inner">
+            <h4 class="title">
+            {{menuItem.title.toUpperCase() | translate}}
+            </h4>
+            </div>
+        </div>
+    </a>
+</li>

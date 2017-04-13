@@ -1,0 +1,9 @@
+<div ng-if="logFiles.length > 0">
+    <mt-paged-grid entities="logFiles" column-defs="::columnDefs"
+                   filtered-columns="::filteredColumns"
+                   resize-callback="handleGridResize(oldGridHeight,oldGridWidth,newGridHeight,newGridWidth)">
+    </mt-paged-grid>
+</div>
+<div ng-if="!(logFiles.length > 0)">
+    <h2>{{'NO LOG FILES' | translate}}</h2>
+</div>

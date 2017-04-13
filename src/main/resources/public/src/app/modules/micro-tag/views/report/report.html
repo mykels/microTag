@@ -1,0 +1,15 @@
+<ng-form name="deviceConfigurationForm">
+    <mt-form>
+        <div class="col-md-6">
+            <mt-form-section section-title="Select report by date">
+                <mt-report-search report-result-callback="handleRecords(records, startDate, endDate)"></mt-report-search>
+            </mt-form-section>
+        </div>
+
+        <div class="col-md-12">
+            <mt-form-section section-title="Report result">
+                <mt-report-grid report-records="reportRecords" report-file-name="{{reportFileName}}"></mt-report-grid>
+            </mt-form-section>
+        </div>
+    </mt-form>
+</ng-form>

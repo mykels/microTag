@@ -1,0 +1,14 @@
+<div class="btn-group dropdown" uib-dropdown>
+    <button id="single-button dropdown-toggle" type="button" class="btn btn-primary"
+            uib-dropdown-toggle>
+        <span class="caret"></span>
+        Actions
+    </button>
+    <ul class="dropdown-menu dropdown-light fade-in-up-short" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+        <li ng-repeat="action in actions track by ::action.name" ng-show="action.visible">
+            <a href ng-click="handleAction(action)" class="menu-toggler">
+                {{::action.name}}
+            </a>
+        </li>
+    </ul>
+</div>

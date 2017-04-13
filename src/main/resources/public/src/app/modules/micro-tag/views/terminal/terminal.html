@@ -1,0 +1,30 @@
+<div class="terminal" ng-click="handleTerminalClick()" mt-full-height debounce-wait="300">
+    <p class="line">$ for information on a specific command, type 'help'
+    </p>
+
+    <div class="input-line" ng-repeat="terminalLine in terminalLines track by $index">
+        <div ng-if="!terminalLine.current">
+            <p class="line">
+                {{'> ' + terminalLine.input}}
+            </p>
+
+            <p ng-repeat="outputLine in terminalLine.output.lines track by $index"
+               class="line output-line" ng-class="{'error-line':terminalLine.output.isError}">
+                {{outputLine}}
+            </p>
+        </div>
+
+        <div ng-if="terminalLine.current">
+            <span class="line">> </span>
+            <input type="text" ng-model="terminalLine.input" class="transparent-input"
+                   ng-keydown="handleKeydown($event, terminalLine)" ng-disabled="terminalLine.disabled"
+                   mt-focus-me="terminalHandler.focusOnTerminalLine"/>
+        </div>
+    </div>
+
+    <div class="input-line" ng-if="terminalHandler.loading">
+        <p class="line">
+            <mt-dot-loader></mt-dot-loader>
+        </p>
+    </div>
+</div>

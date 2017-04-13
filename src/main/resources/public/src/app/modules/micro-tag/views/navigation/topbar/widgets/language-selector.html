@@ -1,0 +1,12 @@
+<li class="dropdown" uib-dropdown on-toggle="toggled(open)">
+    <a href class="dropdown-toggle" uib-dropdown-toggle> <i class="ti-world"></i>
+        {{languageHandler.selected.name}}
+    </a>
+    <ul role="menu" class="dropdown-menu dropdown-light fade-in-up-short">
+        <li ng-repeat="language in languages">
+            <a href ng-click="selectLanguage(language)" class="menu-toggler">
+                {{language.name}}
+            </a>
+        </li>
+    </ul>
+</li>

@@ -27,9 +27,6 @@ $RECYCLE.BIN/
 *.msm
 *.msp
 *.log
-.idea
-*.iml
-target/
 
 # IntelliJ files
 # User-specific stuff:

@@ -1,0 +1,17 @@
+<div id="app" class="app-footer-fixed" ng-class="{'app-mobile' : isMobile}" layout="column" ng-cloak>
+    <section layout="row" flex>
+        <mt-topbar></mt-topbar>
+
+        <toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}">
+        </toaster-container>
+
+        <mt-sidenav>
+            <mt-navigation-menu></mt-navigation-menu>
+        </mt-sidenav>
+
+        <mt-main-content></mt-main-content>
+
+    </section>
+
+    <mt-footer></mt-footer>
+</div>

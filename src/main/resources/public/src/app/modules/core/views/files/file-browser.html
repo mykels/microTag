@@ -1,0 +1,26 @@
+<div ng-switch on="::mode" style="display: inline-block">
+    <div ng-switch-when="button">
+        <button class="btn btn-primary btn-fixed-small" ng-click="openBrowser()">
+            {{browseLabel | translate}}
+        </button>
+    </div>
+    <div ng-switch-when="symbol">
+        <a href ng-click="openBrowser()" class="btn btn-default">
+            <span class="glyphicon glyphicon-save" style="transform: rotate(180deg);"></span>
+        </a>
+    </div>
+    <div ng-switch-when="simple">
+        <a href="" ng-click="openBrowser()" class="simple-file-browser">
+            {{::browseLabel}}
+        </a>
+    </div>
+    <div ng-switch-default>
+        <a href ng-click="openBrowser()" class="btn btn-bricky red-dropdown">
+            {{::browseLabel}}
+        </a>
+    </div>
+</div>
+
+<input type="file" id="{{::browserId}}" accept="{{::fileFilter}}"
+       ng-model="selectedFiles" ng-show="false"
+       mt-file-change="handleFiles($event,files)"/>

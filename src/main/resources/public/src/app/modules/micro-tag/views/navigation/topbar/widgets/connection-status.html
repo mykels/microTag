@@ -1,0 +1,16 @@
+<li class="dropdown" uib-dropdown on-toggle="toggled(open)">
+    <a href class="dropdown-toggle" uib-dropdown-toggle ng-disabled="loadingIndicator.isLoading">
+        <i class="ti-signal"></i>
+        <div ng-class="{'has-warning': !status.connected,'has-success': status.connected}">
+            {{status.connected ? 'CONNECTED' : 'DISCONNECTED' | translate}}
+        </div>
+    </a>
+    <ul role="menu" class="dropdown-menu dropdown-light fadeInUpShort">
+        <li>
+            <a href class="menu-toggler" ng-click="handleReconnection()">
+                {{'RECONNECT' | translate }}
+            </a>
+        </li>
+    </ul>
+</li>
+

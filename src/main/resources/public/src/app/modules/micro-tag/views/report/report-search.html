@@ -1,0 +1,27 @@
+<div layout="row" layout-wrap layout-padding>
+    <div flex="90">
+        <div class="form-group">
+            <div class="input-group range-picker">
+                <div class="start-date">
+                    <mt-datepicker chosen-date="startDate"
+                                   disabled="loadingIndicator.isLoading">
+                    </mt-datepicker>
+                </div>
+                <span class="input-group-addon">
+                    {{'TO' | translate}}
+                </span>
+                <div class="end-date">
+                    <mt-datepicker chosen-date="endDate"
+                                   disabled="loadingIndicator.isLoading">
+                    </mt-datepicker>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div flex="5">
+        <a class="btn btn-blue" href ng-disabled="loadingIndicator.isLoading"
+           ng-click="getReport(startDate.value, endDate.value)">
+            <i class="ti-search"></i>
+        </a>
+    </div>
+</div>

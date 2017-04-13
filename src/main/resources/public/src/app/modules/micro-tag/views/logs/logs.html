@@ -1,0 +1,10 @@
+<mt-form>
+    <div class="col-lg-12">
+        <mt-form-section section-title="Log Files">
+            <mt-group-action-selector ng-if="logFiles.length > 0" actions="::logGroupActions"
+                                      entities="logFiles">
+            </mt-group-action-selector>
+            <mt-log-file-grid log-files="logFiles"></mt-log-file-grid>
+        </mt-form-section>
+    </div>
+</mt-form>

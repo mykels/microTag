@@ -1,0 +1,7 @@
+<md-dialog aria-label="Confirmation Dialog">
+    <mt-form-dialog title="{{::options.title}}" save-label="{{::options.saveLabel}}"
+                    save-class="btn-danger" save-callback="handleConfirm()"
+                    cancel-callback="handleCancel()" warning-dialog="::true">
+        <p>{{::options.description}}</p>
+    </mt-form-dialog>
+</md-dialog>
