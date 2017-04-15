@@ -1,0 +1,9 @@
+<div style="{{::containerStyle}}">
+    <a ng-repeat="action in actionData.actions track by action.name"
+       class="btn btn-sm action-button {{::action.color}}"
+       ng-if="action.visible" ng-disabled="action.disabled || loadingIndicator.isLoading"
+       ng-href="{{action.link}}"
+       ng-click="action.click(actionContext, actionData.actions)">
+        <i class="{{::action.symbol}}"></i>
+    </a>
+</div>

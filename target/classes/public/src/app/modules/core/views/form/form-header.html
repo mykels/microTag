@@ -1,0 +1,12 @@
+<mt-header>
+    <button type="submit" class="btn btn-primary"
+            ng-disabled="!saveEnabled || loadingIndicator.isLoading"
+            ng-click="handleSave()">
+        {{'SAVE' | translate}}
+    </button>
+    <button type="reset" class="btn btn-primary btn-o"
+            ng-disabled="!resetEnabled || loadingIndicator.isLoading"
+            ng-click="handleReset()">
+        {{'RESET' | translate}}
+    </button>
+</mt-header>

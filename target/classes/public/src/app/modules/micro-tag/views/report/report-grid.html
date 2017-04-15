@@ -1,0 +1,9 @@
+<div ng-if="reportRecords.length > 0">
+    <mt-paged-grid entities="reportRecords" column-defs="::columnDefs" use-menu="::true" csv-file-name="{{::reportFileName}}"
+                   filtered-columns="::filteredColumns" use-inline-actions="::false" use-selection="::false"
+                   resize-callback="handleGridResize(oldGridHeight,oldGridWidth,newGridHeight,newGridWidth)">
+    </mt-paged-grid>
+</div>
+<div ng-if="!(reportRecords.length > 0)">
+    <h2>{{'NO REPORT RECORDS' | translate}}</h2>
+</div>

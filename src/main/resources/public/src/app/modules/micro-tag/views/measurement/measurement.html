@@ -1,1 +1,20 @@
-this is measurement
+<mt-header>
+    <button type="submit" class="btn btn-primary"
+            ng-click="runMeasurement()">
+        {{'RUN' | translate}}
+    </button>
+</mt-header>
+
+<ng-form name="deviceConfigurationForm" mt-full-height debounce-wait="300">
+    <mt-form>
+        <div class="col-md-6">
+            <mt-form-section section-title="Measurement Result">
+                <div class="measurement-result-container">
+                    <img class="measurement-base-image" ng-src="{{resultHandler.baseImage}}"/>
+                    <img class="measurement-result-image" ng-src="{{resultHandler.resultImage}}"
+                         ng-show="resultHandler.resultImageVisible"/>
+                </div>
+            </mt-form-section>
+        </div>
+    </mt-form>
+</ng-form>

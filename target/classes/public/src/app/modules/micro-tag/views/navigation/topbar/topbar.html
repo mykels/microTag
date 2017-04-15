@@ -1,0 +1,22 @@
+<header class="navbar navbar-default navbar-static-top hidden-print">
+    <div class="navbar-header">
+        <a href ng-click="toggleSidenav()" class="pull-left btn btn-navbar" hide-gt-md>
+            <i class="ti-align-justify"></i>
+        </a>
+
+        <a class="navbar-brand" href="http://www.microtag-temed.com/" target="_blank">
+            <img ng-src="{{::layout.logo}}" alt="{{::appName}}"/>
+        </a>
+
+        <a href class="pull-right menu-toggler visible-xs-block" id="menu-toggler"
+           ng-click="toggleWidgetBar()">
+            <span class="sr-only">
+                Toggle navigation
+            </span>
+            <i class="ti-view-grid"></i>
+        </a>
+    </div>
+
+    <mt-widget-bar navbar="widgetBar" collapse-widget-bar="collapseWidgetBar(collapse)"></mt-widget-bar>
+
+</header>

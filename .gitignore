@@ -122,4 +122,6 @@ WebContent/www/.idea/
 WebContent/www/auraplayer/.idea/
 
 .idea/
+logs/
 dist
+/micro.tag.iml

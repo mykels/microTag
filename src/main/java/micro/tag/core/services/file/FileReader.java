@@ -1,5 +1,6 @@
 package micro.tag.core.services.file;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,9 +11,6 @@ import javax.annotation.PostConstruct;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.List;
 
 @Service
 public class FileReader {
@@ -33,8 +31,7 @@ public class FileReader {
 		return new File(env.getProperty("resource.path") + File.separator + fileName);
 	}
 
-	public List<String> read(String fileName) throws IOException {
-		return Files.readAllLines(Paths.get(getFile(fileName).getAbsolutePath()), Charset.forName("UTF-8"));
+	public String read(String fileName) throws IOException {
+		return FileUtils.readFileToString(getFile(fileName), Charset.forName("UTF-8"));
 	}
-
 }

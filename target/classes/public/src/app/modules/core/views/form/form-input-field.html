@@ -1,0 +1,11 @@
+<ng-form name="inputFieldForm" novalidate>
+    <div class="form-group"
+         ng-class="{'has-error':inputFieldForm[fieldName].$dirty &amp;&amp; inputFieldForm[fieldName].$invalid, 'has-success':inputFieldForm[fieldName].$valid}">
+        <label class="control-label">
+            {{::fieldTitle}} <span class="symbol required"></span>
+        </label>
+        <input type="{{::fieldType}}"
+               class="form-control ng-pristine ng-empty ng-invalid ng-invalid-required ng-touched"
+               name="{{::fieldName}}" ng-model="fieldModel" required="" style=""/>
+    </div>
+</ng-form>

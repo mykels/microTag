@@ -26,7 +26,6 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
@@ -61,8 +60,7 @@ public class DeviceController {
 
 	private void initDeviceConfiguration() {
 		try {
-			List<String> deviceSettingsLines = fileReader.read("device-settings.json");
-			String deviceSettingsStr = deviceSettingsLines.stream().collect(Collectors.joining("\n"));
+			String deviceSettingsStr = fileReader.read("device-settings.json");
 			ObjectMapper objectMapper = new ObjectMapper();
 			deviceSettings = (ObjectNode) objectMapper.readTree(deviceSettingsStr);
 		} catch (IOException e) {
@@ -72,6 +70,8 @@ public class DeviceController {
 
 	@RequestMapping(path = "/device/settings", method = RequestMethod.GET, produces = "application/json")
 	public ResponseEntity get() {
+		logger.info("Getting device settings ...");
+
 		return jsonSerializer.toJson(ResponseWrapperBuilder.of(deviceSettings).build())
 				.map(ResponseEntity::ok)
 				.orElse(ResponseEntity.badRequest().body(null));
@@ -79,7 +79,10 @@ public class DeviceController {
 
 	@RequestMapping(path = "/device/settings", method = RequestMethod.POST, produces = "application/json")
 	public ResponseEntity save(@RequestBody String body) throws IOException {
+		logger.info("Saving device settings ...");
 		saveSettings(body);
+		logger.info("Device settings are saved!");
+
 
 		return jsonSerializer.toJson(ResponseWrapperBuilder.of(deviceSettings).build())
 				.map(ResponseEntity::ok)
@@ -88,6 +91,8 @@ public class DeviceController {
 
 	@RequestMapping(path = "/device/settings/download", method = RequestMethod.GET)
 	public ResponseEntity<Resource> download() throws IOException {
+		logger.info("Downloading device settings ...");
+
 		File deviceSettings = fileReader.getFile("device-settings.json");
 		InputStreamResource resource = new InputStreamResource(new FileInputStream(deviceSettings));
 
@@ -103,6 +108,8 @@ public class DeviceController {
 	                             RedirectAttributes redirectAttributes) {
 
 		try {
+			logger.info("Uploading device settings ...");
+
 			File uploadedConfiguration = multipartToFile(file);
 			String deviceSettingsStr = Files.readAllLines(Paths.get(uploadedConfiguration.getAbsolutePath()),
 					Charset.forName("UTF-8")).stream().collect(Collectors.joining("\n"));

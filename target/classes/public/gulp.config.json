@@ -1,0 +1,82 @@
+{
+  "modules": [
+    "micro-tag",
+    "core",
+    "utils"
+  ],
+  "sourcePaths": {
+    "gulpFile": "gulpfile.js",
+    "package": "./package.json",
+    "modules": "src/app/modules",
+    "module": {
+      "js": {
+        "module": "**/*.module.js",
+        "config": "**/*.config.js",
+        "routes": "**/*.routes.js",
+        "constants": "**/*.constant.js",
+        "controllers": "**/*.controller.js",
+        "services": "**/*.service.js",
+        "providers": "**/*.provider.js",
+        "filters": "**/*.filter.js",
+        "directives": "**/*.directive.js",
+        "dev": {
+          "constants": "**/*.constant.dev.js"
+        },
+        "prod": {
+          "constants": "**/*.constant.production.js"
+        }
+      },
+      "views": "**/*.html"
+    },
+    "css": "assets/css/**/*.css",
+    "html": "*.html",
+    "angular": [
+      "vendor/angular/**/*.js",
+      "!vendor/angular/**/*.min.js"
+    ],
+    "angularMin": "!vendor/angular/**/*.min.js",
+    "vendor": {
+      "js": "vendor/**/*.js",
+      "css": "vendor/**/*.css",
+      "fonts": "vendor/**/*.{ttf,woff,woff2,eof,svg}"
+    }
+  },
+  "distPaths": {
+    "root": "dist/",
+    "module": {
+      "name": "micro-tag.js",
+      "path": "dist/js",
+      "files": "dist/**/*.js"
+    },
+    "css": {
+      "name": "micro-tag.css",
+      "path": "dist/css",
+      "files": "dist/**/*.css"
+    },
+    "templates": {
+      "name": "micro-tag-templates.js",
+      "path": "dist/js"
+    },
+    "vendor": {
+      "js": {
+        "name": "vendor.js",
+        "path": "dist/vendor/js"
+      },
+      "css": {
+        "name": "vendor.css",
+        "path": "dist/vendor/css"
+      },
+      "fonts": {
+        "path": "dist/vendor/fonts"
+      },
+      "angular": {
+        "name": "angular.js",
+        "path": "dist/vendor/angular"
+      }
+    }
+  },
+  "root": {
+    "path": "./",
+    "index": "./index.html"
+  }
+}
