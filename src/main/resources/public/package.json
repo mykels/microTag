@@ -1,19 +1,19 @@
 {
   "name": "MicroTag",
-  "version": "0.0.11",
-  "date": "April 13th - 2017, 12:44",
+  "version": "0.0.14",
+  "date": "April 16th - 2017, 11:09",
   "author": "Michael Sherman <micha1991g@gmail.com, https://github.com/mykels>",
   "description": "MicroTag Temed Ltd. proposes a novel technology for authentication, anti-counterfeiting and anti-fraud protection of articles and valuables",
   "main": "gulpfile.js",
   "dependencies": {
-    "browser-sync": "^2.11.1",
+    "browser-sync": "^2.18.8",
     "dateformat": "^1.0.12",
     "es5-shim": "^4.5.9",
     "es6-shim": "^0.35.1",
-    "gulp": "^3.9.0",
+    "gulp": "github:gulpjs/gulp#4.0",
     "gulp-angular-filesort": "^1.1.1",
     "gulp-batch": "^1.0.5",
-    "gulp-bump": "^2.1.0",
+    "gulp-cli": "^1.2.2",
     "gulp-concat": "^2.6.0",
     "gulp-copy": "^1.0.0",
     "gulp-htmlmin": "^2.0.0",
@@ -28,7 +28,6 @@
     "gulp-nodemon": "^2.0.6",
     "gulp-order": "^1.1.1",
     "gulp-rename": "^1.2.2",
-    "gulp-run-sequence": "^0.3.2",
     "gulp-sass": "^2.1.0",
     "gulp-uglify": "^1.5.1",
     "gulp-version-append": "^0.2.0",
@@ -39,5 +38,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {}
 }

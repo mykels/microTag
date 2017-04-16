@@ -1,67 +1,69 @@
 angular.module('microTag.core')
-	.directive('mtFullHeight', fullHeightDirective);
+    .directive('mtFullHeight', fullHeightDirective);
 
-function fullHeightDirective($window, $timeout) {
-	return {
-		restrict: 'A',
-		scope: {
-			additionalPadding: '@',
-			debounceWait: '@',
-			onResize: '&'
-		},
-		link: function (scope, element, attrs) {
-			if (scope.debounceWait === 0) {
-				angular.element($window).on('resize', windowResize);
-			} else {
-				angular.element($window).on('resize', debounce(onWindowResize, scope.debounceWait || 250));
-			}
+function fullHeightDirective($window, $timeout, ObjectUtils) {
+    return {
+        restrict: 'A',
+        scope: {
+            isEnabled: '=?',
+            additionalPadding: '@',
+            debounceWait: '@',
+            onResize: '&'
+        },
+        link: function (scope, element, attrs) {
+            scope.isEnabled = ObjectUtils.defaultValue(scope.isEnabled, true);
 
-			onWindowResize();
+            if (scope.debounceWait === 0 && scope.isEnabled) {
+                angular.element($window).on('resize', windowResize);
+            } else {
+                angular.element($window).on('resize', debounce(onWindowResize, scope.debounceWait || 250));
+            }
 
-			function debounce(fn, time) {
-				var timeout;
-				return function () {
-					var context = this;
-					var args = arguments;
-					var later = function () {
-						timeout = null;
-						fn.apply(context, args);
-					};
-					$timeout.cancel(timeout);
-					timeout = $timeout(later, time);
-				};
-			}
+            onWindowResize();
 
-			function onWindowResize() {
-				var footerElementHeight = 122;
+            function debounce(fn, time) {
+                var timeout;
+                return function () {
+                    var context = this;
+                    var args = arguments;
+                    var later = function () {
+                        timeout = null;
+                        fn.apply(context, args);
+                    };
+                    $timeout.cancel(timeout);
+                    timeout = $timeout(later, time);
+                };
+            }
 
-				var elementBottomMarginAndBorderHeight = getBottomMarginAndBorderHeight(element);
+            function onWindowResize() {
+                var footerElementHeight = 122;
 
-				var additionalPadding = scope.additionalPadding || 0;
+                var elementBottomMarginAndBorderHeight = getBottomMarginAndBorderHeight(element);
 
-				var elementHeight = $window.innerHeight
-					- elementBottomMarginAndBorderHeight
-					- footerElementHeight
-					- additionalPadding;
+                var additionalPadding = scope.additionalPadding || 0;
 
-				element.css('height', elementHeight + 'px');
+                var elementHeight = $window.innerHeight - elementBottomMarginAndBorderHeight - footerElementHeight - additionalPadding;
 
-				if (scope.onResize) {
-					scope.onResize({
-						'height': elementHeight
-					});
-				}
-			}
+                if (scope.isEnabled) {
+                    element.css('height', elementHeight + 'px');
 
-			function getBottomMarginAndBorderHeight(element) {
-				var footerBottomMarginHeight = getCssNumeric(element, 'margin-bottom');
-				var footerBottomBorderHeight = getCssNumeric(element, 'border-bottom-width');
-				return footerBottomMarginHeight + footerBottomBorderHeight;
-			}
+                    if (scope.onResize) {
+                        scope.onResize({
+                            'height': elementHeight
+                        });
+                    }
+                }
+            }
 
-			function getCssNumeric(element, propertyName) {
-				return parseInt(element.css(propertyName), 10) || 0;
-			}
-		}
-	}
+            function getBottomMarginAndBorderHeight(element) {
+                var footerBottomMarginHeight = getCssNumeric(element, 'margin-bottom');
+                var footerBottomBorderHeight = getCssNumeric(element, 'border-bottom-width');
+                return footerBottomMarginHeight + footerBottomBorderHeight;
+            }
+
+            function getCssNumeric(element, propertyName) {
+                return parseInt(element.css(propertyName), 10) || 0;
+            }
+        }
+    };
 }

@@ -1,1 +1,45 @@
-this is statistics
+<mt-header header-title="statistics">
+    <button type="submit" class="btn btn-primary"
+            ng-click="handleSingleMeasurement()" ng-disabled="!sessionHandler.active">
+        {{'MEASUREMENT' | translate}}
+    </button>
+    <button ng-if="!sessionHandler.active" class="btn btn-primary" ng-click="handleNewSession()">
+        {{'NEW SESSION' | translate}}
+    </button>
+    <button ng-if="sessionHandler.active" class="btn btn-warning" ng-csv="resultCsv" ng-click="closeSession()"
+            csv-header="resultCsvHeaders" filename="test.csv">
+        {{('CLOSE SESSION'| translate) + (sessionTimer.value > 0 ? ' (' + sessionTimer.text + ') ': '')}}
+    </button>
+</mt-header>
+
+<mt-form ng-if="sessionHandler.active">
+    <div class="col-lg-10">
+        <mt-form-section section-title="Measurement Chart">
+            <mt-statistics-chart chart-data="statisticsData" max-y="maxY"
+                                 chart-init-callback="handleChartInitialization(api)">
+            </mt-statistics-chart>
+        </mt-form-section>
+    </div>
+    <div class="col-lg-2">
+        <mt-form-section section-title="Measurement Information">
+            <mt-form-field field-title="Last Reading" field-name="statisticsInformation.lastReading">
+                <h4>{{statisticsInformation.lastReading | number:1}}</h4>
+            </mt-form-field>
+            <mt-form-field field-title="STD" field-name="statisticsInformation.std">
+                <h4>{{statisticsInformation.std | number:1}}</h4>
+            </mt-form-field>
+            <mt-form-field field-title="MEAN" field-name="statisticsInformation.mean">
+                <h4>{{statisticsInformation.mean | number:1}}</h4>
+            </mt-form-field>
+            <mt-form-field field-title="MIN" field-name="statisticsInformation.min">
+                <h4>{{statisticsInformation.min}}</h4>
+            </mt-form-field>
+            <mt-form-field field-title="MAX" field-name="statisticsInformation.max">
+                <h4>{{statisticsInformation.max}}</h4>
+            </mt-form-field>
+            <mt-form-field field-title="RANGE" field-name="statisticsInformation.range">
+                <h4>TODO</h4>
+            </mt-form-field>
+        </mt-form-section>
+    </div>
+</mt-form>

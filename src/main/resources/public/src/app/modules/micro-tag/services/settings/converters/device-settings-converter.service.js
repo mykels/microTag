@@ -16,5 +16,5 @@ function deviceSettingsConverterService(LogLevels) {
 		}
 
 		return deviceSettings;
-	}
+	};
 }

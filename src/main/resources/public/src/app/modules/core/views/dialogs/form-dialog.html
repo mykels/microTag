@@ -1,37 +1,39 @@
-<div layout="row" class="dialog-header" layout-wrap layout-padding>
-    <div flex="10">
-        <i ng-if="::warningDialog" class="ti-alert"></i>
+<div class="dialog-container">
+    <div layout="row" class="dialog-header" layout-wrap layout-padding>
+        <div flex="10" ng-if="::warningDialog">
+            <i class="ti-alert"></i>
+        </div>
+        <div flex="{{::warningDialog ? 90 : 100}}">
+            <h4>{{title.toUpperCase() | translate}}</h4>
+        </div>
     </div>
-    <div flex="80">
-        <h4>{{::title}}</h4>
+
+    <div class="dialog-body">
+        <div ng-transclude></div>
     </div>
-</div>
 
-<div class="dialog-body">
-    <div ng-transclude></div>
-</div>
-
-<div class="dialog-footer" ng-hide="::footerVisible===false">
-    <div class="pull-right dialog-actions">
-    	<span title="{{saveAllowed ? '' : 'Invalid fields marked in red'}}">
+    <div class="dialog-footer" ng-hide="::footerVisible===false">
+        <div class="pull-right dialog-actions">
+    	<span title="{{!activeForm.$invalid ? '' : 'Invalid fields marked in red'}}">
 	        <button class="btn {{::saveClass}}" ng-if="::saveVisible"
-                    ng-click="handleSave()" ng-disabled="!saveAllowed">
+                    ng-click="handleSave()" ng-disabled="activeForm.$invalid">
 	            <div ng-if="::saveLabel">
-	                {{::saveLabel}}
+	                {{saveLabel.toUpperCase() | translate}}
 	            </div>
 	            <div ng-if="::!saveLabel">
-	                Save
+	                 {{'SAVE' | translate}}
 	            </div>
 	        </button>
 	    </span>
-        <button title="" class="btn {{::cancelClass}}" ng-if="::cancelVisible"
-                ng-click="handleCancel()">
-            <div ng-if="::cancelLabel">
-                {{::cancelLabel}}
-            </div>
-            <div ng-if="::!cancelLabel">
-                Cancel
-            </div>
-        </button>
+            <button title="" class="btn {{::cancelClass}}" ng-if="::cancelVisible"
+                    ng-click="handleCancel()">
+                <div ng-if="::cancelLabel">
+                    {{cancelLabel.toUpperCase() | translate}}
+                </div>
+                <div ng-if="::!cancelLabel">
+                    {{'CANCEL' | translate}}
+                </div>
+            </button>
+        </div>
     </div>
 </div>

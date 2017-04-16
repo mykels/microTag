@@ -12,5 +12,5 @@ function imageService(System) {
 
 	this.constructUrl = function (imageName) {
 		return System.baseUrl + self.imageUrl + imageName;
-	}
+	};
 }

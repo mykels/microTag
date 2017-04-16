@@ -33,8 +33,8 @@ function routesConfig($routeProvider) {
 			templateUrl: 'src/app/modules/micro-tag/views/charts/charts.html',
 			controller: 'ChartsController',
 			resolve: {
-				chartLogs: function (ChartService) {
-					return ChartService.getLogs();
+				measurementPoints: function (MeasurementService) {
+					return MeasurementService.getPoints();
 				}
 			}
 		})
@@ -45,15 +45,6 @@ function routesConfig($routeProvider) {
 		.when('/statistics', {
 			templateUrl: 'src/app/modules/micro-tag/views/statistics/statistics.html',
 			controller: 'StatisticsController'
-		})
-		.when('/charts', {
-			templateUrl: 'src/app/modules/micro-tag/views/charts/charts.html',
-			controller: 'ChartsController',
-			resolve: {
-				chartLogs: function (ChartService) {
-					return ChartService.getLogs();
-				}
-			}
 		})
 		.otherwise({
 			redirectTo: '/terminal'

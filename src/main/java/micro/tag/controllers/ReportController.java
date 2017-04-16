@@ -47,9 +47,12 @@ public class ReportController {
 	}
 
 	@RequestMapping(path = "/report/{startDate}/{endDate}", method = RequestMethod.GET, produces = "application/json")
-	public ResponseEntity getByDate(@PathVariable String startDate, @PathVariable String endDate) {
+	public ResponseEntity getByDate(@PathVariable String startDate, @PathVariable String endDate) throws InterruptedException {
 		logger.info("Getting reports from {} to {}", startDate, endDate);
 		JsonNode reports = generateReports();
+
+		Thread.sleep(1500);
+
 		return jsonSerializer.toJson(ResponseWrapperBuilder.of(reports).build())
 				.map(ResponseEntity::ok)
 				.orElse(ResponseEntity.badRequest().body(null));

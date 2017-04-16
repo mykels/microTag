@@ -17,5 +17,5 @@ function translationLoader(HttpCaller) {
 
 	return function (options) {
 		return HttpCaller.get(self.translationConfig, options.key);
-	}
+	};
 }

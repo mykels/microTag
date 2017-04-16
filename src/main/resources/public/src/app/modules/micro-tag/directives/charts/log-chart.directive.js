@@ -6,8 +6,9 @@ function logChartDirective() {
 		restrict: 'AE',
 		scope: {
 			chartTitle: '@',
-			chartData: '='
-		},
+			chartData: '=',
+            chartFullHeight: '=?'
+        },
 		templateUrl: 'src/app/modules/micro-tag/views/charts/log-chart.html',
 		controller: 'LogChartController'
 	};

@@ -11,7 +11,7 @@ function reportSearchController($scope, ReportService, LoadingService) {
 		$scope.endDate = {value: new Date()};
 		$scope.endDatePickerOptions = {
 			minDate: $scope.startDate.value
-		}
+		};
 	}
 
 	$scope.getReport = function (startDate, endDate) {

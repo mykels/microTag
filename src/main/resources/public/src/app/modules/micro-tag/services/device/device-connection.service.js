@@ -36,7 +36,7 @@ function deviceConnectionService($timeout, $q, $interval, LoadingService) {
 		self.status.connected = false;
 		$interval.cancel(self.statusChecker);
 
-		this.connect().then(function () {
+		return this.connect().then(function () {
 			self.status.connected = true;
 			initStatusChecker();
 		});
@@ -52,6 +52,6 @@ function deviceConnectionService($timeout, $q, $interval, LoadingService) {
 		}, 5000);
 
 		return deferred.promise;
-	}
+	};
 
 }

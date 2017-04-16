@@ -1,66 +1,71 @@
 angular.module('microTag')
-	.service('SidenavService', sidenavService);
+    .service('SidenavService', sidenavService);
 
-function sidenavService($mdSidenav, $mdMedia, EventEmitter, DocumentUtils) {
-	var self = this;
+function sidenavService($timeout, $mdSidenav, $mdMedia, EventEmitter, DocumentUtils) {
+    var self = this;
 
-	activate();
+    activate();
 
-	function activate() {
-		self.sidenavId = "microTagSidenav";
-		self.sidenav = {opened: false};
+    function activate() {
+        self.sidenavId = "microTagSidenav";
+        self.sidenav = {opened: false};
 
-		registerEventListeners();
-	}
+        registerEventListeners();
+    }
 
-	function registerEventListeners() {
-		EventEmitter.subscribe('widgetBarCollapsed', handleWidgetBarCollapsed);
-	}
+    function registerEventListeners() {
+        EventEmitter.subscribe('widgetBarCollapsed', handleWidgetBarCollapsed);
+    }
 
-	function handleWidgetBarCollapsed() {
-		self.close();
-	}
+    function handleWidgetBarCollapsed() {
+        self.close();
+    }
 
-	this.toggle = function () {
-		if (self.sidenav.opened) {
-			self.close();
-		} else {
-			self.open();
-		}
-	};
+    this.toggle = function () {
+        $timeout(function () {
+            if (self.sidenav.opened) {
+                self.close();
+            } else {
+                self.open();
+            }
+        });
+    };
 
-	this.close = function () {
-		EventEmitter.publish('sidenavIsClosing');
+    this.close = function () {
+        $timeout(function () {
+            EventEmitter.publish('sidenavIsClosing');
 
-		DocumentUtils.toTheTop();
+            DocumentUtils.toTheTop();
 
-		getSidenav().close().then(function () {
-			EventEmitter.publish('sidenavClosed');
-			self.sidenav.opened = false;
-		});
+            getSidenav().close().then(function () {
+                EventEmitter.publish('sidenavClosed');
+                self.sidenav.opened = false;
+            });
+        });
+    };
 
-	};
+    this.open = function () {
+        $timeout(function () {
+            EventEmitter.publish('sidenavIsOpening');
 
-	this.open = function () {
-		EventEmitter.publish('sidenavIsOpening');
+            getSidenav().open().then(function () {
+                EventEmitter.publish('sidenavOpened');
 
-		getSidenav().open().then(function () {
-			EventEmitter.publish('sidenavOpened');
+                self.sidenav.opened = true;
+            });
+        });
+    };
 
-			self.sidenav.opened = true;
-		});
-	};
+    this.isShown = function () {
+        return getSidenav().isOpen();
+    };
 
-	this.isShown = function () {
-		return getSidenav().isOpen();
-	};
+    this.isOpened = function () {
+        return !$mdMedia('gt-md') && self.isShown();
+    };
 
-	this.isOpened = function () {
-		return !$mdMedia('gt-md') && self.isShown();
-	};
-
-	function getSidenav() {
-		return $mdSidenav(self.sidenavId);
-	}
+    function getSidenav() {
+        return $mdSidenav(self.sidenavId);
+    }
 
 }

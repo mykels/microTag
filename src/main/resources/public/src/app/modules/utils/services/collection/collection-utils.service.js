@@ -164,5 +164,5 @@ function collectionUtilsService($timeout, ObjectUtils) {
 		});
 
 		return joint.substring(0, joint.length - 1);
-	}
+	};
 }

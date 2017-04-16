@@ -8,6 +8,7 @@ function formHeaderDirective() {
 			saveEnabled: '=',
 			resetEnabled: '=',
 			loadingIndicator: '=',
+			headerTitle: '@',
 			saveCallback: '&',
 			resetCallback: '&'
 		},

@@ -12,7 +12,7 @@ function formDialogDialog() {
             cancelLabel: '@',
             cancelClass: '@',
             cancelVisible: '=?',
-            saveAllowed: '=?',
+            activeForm: '=?',
             saveVisible: '=?',
             saveCallback: '&',
             cancelCallback: '&',

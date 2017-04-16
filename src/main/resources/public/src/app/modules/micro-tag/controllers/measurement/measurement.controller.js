@@ -46,7 +46,7 @@ function measurementController($scope, $timeout, MeasurementService, ImageUtils,
 			if ($scope.resultHandler.blinkCount++ <= self.blinkTimes) {
 				animateResult();
 			} else {
-				$scope.resultHandler.visible = true;
+				$scope.resultHandler.resultImageVisible = true;
 				$scope.resultHandler.blinkCount = 0;
 			}
 

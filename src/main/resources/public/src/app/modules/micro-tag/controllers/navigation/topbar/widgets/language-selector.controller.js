@@ -1,25 +1,43 @@
 angular.module('microTag')
-	.controller('LanguageSelectorController', languageSelectorController);
+    .controller('LanguageSelectorController', languageSelectorController);
 
 function languageSelectorController($scope, Languages, LanguageService) {
-	activate();
+    activate();
 
-	function activate() {
-		initLanguages();
+    $scope.selectLanguage = selectLanguage;
 
-		$scope.languageHandler = {
-			selected: Languages.default
-		};
-	}
+    function activate() {
+        initLanguages();
+        initHandler();
+        initCurrentLanguage();
+    }
 
-	function initLanguages() {
-		LanguageService.getAvailableLanguages().then(function (languages) {
-			$scope.languages = languages;
-		});
-	}
+    function initLanguages() {
+        LanguageService.getAvailableLanguages().then(function (languages) {
+            $scope.languages = languages;
+        });
+    }
 
-	$scope.selectLanguage = function (language) {
-		$scope.languageHandler.selected = language;
-		LanguageService.set(language.locale);
-	}
+    function initHandler() {
+        $scope.languageHandler = {
+            selected: Languages.default
+        };
+    }
+
+    function initCurrentLanguage() {
+        var locale = LanguageService.getCurrentLocale();
+
+        if (angular.isDefined(locale)) {
+            selectLanguage(Languages.getByProperty("locale", locale))
+        }
+    }
+
+    function selectLanguage(language) {
+        $scope.languageHandler.selected = language;
+        LanguageService.set(language.locale);
+
+        if (angular.isDefined($scope.onSelect)) {
+            $scope.onSelect({language: language});
+        }
+    }
 }

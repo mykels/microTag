@@ -3,7 +3,7 @@ angular.module('microTag.utils')
 
 function documentUtilsService($document, $route) {
 	this.toTheTop = function () {
-		$document.scrollTopAnimated(0, 600);
+		$document.scrollTopAnimated(0, 800);
 	};
 
 	this.reload = function () {

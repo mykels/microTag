@@ -5,7 +5,6 @@ function formDialogController($scope, ObjectUtils, $mdDialog) {
     activate();
 
     function activate() {
-        $scope.saveAllowed = ObjectUtils.defaultValue($scope.saveAllowed, true);
         $scope.saveLabel = ObjectUtils.defaultValue($scope.saveLabel, "Save");
         $scope.saveClass = ObjectUtils.defaultValue($scope.saveClass, "btn-primary");
         $scope.cancelLabel = ObjectUtils.defaultValue($scope.cancelLabel, "Cancel");
