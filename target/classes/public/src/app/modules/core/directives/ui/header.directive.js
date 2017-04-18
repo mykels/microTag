@@ -4,9 +4,12 @@ angular.module('microTag.core')
 function headerDirective() {
 	return {
 		restrict: 'AE',
+		scope: {
+			headerTitle: '@'
+		},
 		transclude: true,
 		replace: false,
-		templateUrl: 'src/app/modules/core/views/ui/header.html',
+		templateUrl: 'header.html',
 		controller: "HeaderController"
 	};
 }

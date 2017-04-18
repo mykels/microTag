@@ -12,7 +12,7 @@ function formInputFieldDirective() {
             isRequired: '='
         },
         replace: true,
-        templateUrl: 'src/app/modules/core/views/form/form-input-field.html',
+        templateUrl: 'form-input-field.html',
         controller: 'FormInputFieldController'
     };
 }

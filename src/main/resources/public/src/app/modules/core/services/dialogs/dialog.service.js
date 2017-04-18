@@ -6,7 +6,7 @@ function dialogService($mdDialog) {
     this.openConfirmationDialog = function (options) {
         return $mdDialog.show({
             controller: 'ConfirmationDialogController',
-            templateUrl: 'src/app/modules/core/views/dialogs/confirmation-dialog.html',
+            templateUrl: 'confirmation-dialog.html',
             clickOutsideToClose: false,
             locals: {
                 options: options

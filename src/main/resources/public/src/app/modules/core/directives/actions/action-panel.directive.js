@@ -10,7 +10,7 @@ function actionPanelDirective() {
             tooltipPlacement: '@',
             containerStyle: '@'
         },
-        templateUrl: 'src/app/modules/core/views/actions/action-panel.html',
+        templateUrl: 'action-panel.html',
         controller: 'ActionPanelController'
     };
 }

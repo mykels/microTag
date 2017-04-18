@@ -6,7 +6,7 @@ function topbarDirective() {
 		restrict: 'AE',
 		scope: {
 		},
-		templateUrl: 'src/app/modules/micro-tag/views/navigation/topbar/topbar.html',
+		templateUrl: 'topbar.html',
 		controller: 'TopbarController'
 	};
 }

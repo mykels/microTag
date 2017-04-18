@@ -9,7 +9,7 @@ function headerDirective() {
 		},
 		transclude: true,
 		replace: false,
-		templateUrl: 'src/app/modules/core/views/ui/header.html',
+		templateUrl: 'header.html',
 		controller: "HeaderController"
 	};
 }

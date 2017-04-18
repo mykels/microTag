@@ -10,7 +10,7 @@ function groupActionSelectorDirective() {
             useSingleCallback: '=?',
             selectedProperty: '@'
         },
-        templateUrl: 'src/app/modules/core/views/selectors/group-action-selector.html',
+        templateUrl: 'group-action-selector.html',
         controller: 'GroupActionSelectorController'
     };
 }

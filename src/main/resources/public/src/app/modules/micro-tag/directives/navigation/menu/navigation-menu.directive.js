@@ -7,7 +7,7 @@ function navigationMenuDirective() {
 		scope: {
 		},
 		replace: true,
-		templateUrl: 'src/app/modules/micro-tag/views/navigation/menu/navigation-menu.html',
+		templateUrl: 'navigation-menu.html',
 		controller: 'NavigationMenuController'
 	};
 }

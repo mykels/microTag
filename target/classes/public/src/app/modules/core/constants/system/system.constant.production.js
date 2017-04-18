@@ -1,10 +1,7 @@
 angular.module('microTag.core')
 	.value('System', {
 		isProd: false,
-		useDefault: true, // if true use default host and port, otherwise parse it from the current url (should be false in production!)
-		defaultProtocol: "http",
-		defaultHost: "localhost",
-		defaultPort: "8000",
+		useDefault: false, // if true use default host and port, otherwise parse it from the current url (should be false in production!)
 		appName: "μicroTag",
 		version: '0.1',
 		isMobile: (function () {// true if the browser is a mobile device

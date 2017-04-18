@@ -17,7 +17,7 @@ function constantSelectorDirective() {
 			editedName: '@?',
 			onSelectCallback: '&'
 		},
-		templateUrl: 'src/app/modules/core/views/selectors/constant-selector.html',
+		templateUrl: 'constant-selector.html',
 		controller: 'ConstantSelectorController'
 	};
 }

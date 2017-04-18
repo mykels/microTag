@@ -10,7 +10,7 @@ function sliderDirective() {
 			sliderMax: '@',
 			sliderStep: '@'
 		},
-		templateUrl: 'src/app/modules/core/views/ui/slider.html',
+		templateUrl: 'slider.html',
 		controller: 'SliderController'
 	};
 }

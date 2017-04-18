@@ -104,11 +104,8 @@ gulp.task(TASKS.CACHE_TEMPLATES, function () {
         standalone: true,
         module: 'microTag.templates',
         path: function (path, base) {
-            var baseParts = base.split('\\');
-            baseParts.pop();
-            baseParts.pop();
-            baseParts.pop();
-            return config.sourcePaths.modules + '\\' + path.replace(baseParts.join('\\'), '');
+            var pathParts = path.split("\\");
+            return pathParts[pathParts.length - 1];
         }
     };
 

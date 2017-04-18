@@ -28,7 +28,7 @@ function httpCallerService($q, ObjectUtils, HttpHandler, LoadingService, ToastSe
                 }
 
                 LoadingService.stop();
-            }, function (status) {
+            }, function (status, error) {
                 LoadingService.stop();
                 handleUnexpectedError(entityConfig, status, deferredGet);
             });

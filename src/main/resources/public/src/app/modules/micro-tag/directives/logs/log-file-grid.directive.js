@@ -7,7 +7,7 @@ function logFileGridDirective() {
 		scope: {
 			logFiles: '='
 		},
-		templateUrl: 'src/app/modules/micro-tag/views/logs/log-file-grid.html',
+		templateUrl: 'log-file-grid.html',
 		controller: 'LogFileGridController'
 	};
 }

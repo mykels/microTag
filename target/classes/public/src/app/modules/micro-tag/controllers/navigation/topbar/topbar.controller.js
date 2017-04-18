@@ -23,5 +23,5 @@ function topbarController($scope, System, SidenavService, EventEmitter) {
 		if ($scope.widgetBar.collapsed) {
 			EventEmitter.publish('widgetBarCollapsed');
 		}
-	}
+	};
 }

@@ -7,7 +7,7 @@ function deviceSettingsFormDirective() {
 		scope: {
 			deviceSettings: "="
 		},
-		templateUrl: 'src/app/modules/micro-tag/views/settings/device-settings-form.html',
+		templateUrl: 'device-settings-form.html',
 		controller: 'DeviceSettingsFormController'
 	};
 }

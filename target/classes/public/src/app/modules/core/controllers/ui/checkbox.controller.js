@@ -6,7 +6,4 @@ function checkboxController($scope) {
 
 	function activate() {
 	}
-
-	$scope.handleChecked = function (checked) {
-	}
 }

@@ -9,7 +9,7 @@ function logChartDirective() {
 			chartData: '=',
             chartFullHeight: '=?'
         },
-		templateUrl: 'src/app/modules/micro-tag/views/charts/log-chart.html',
+		templateUrl: 'log-chart.html',
 		controller: 'LogChartController'
 	};
 }

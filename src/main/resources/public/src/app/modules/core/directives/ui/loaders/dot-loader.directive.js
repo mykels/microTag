@@ -6,7 +6,7 @@ function dotLoaderDirective() {
 		restrict: 'AE',
 		scope: {
 		},
-		templateUrl: 'src/app/modules/core/views/ui/loaders/dot-loader.html',
+		templateUrl: 'dot-loader.html',
 		controller: 'DotLoaderController'
 	};
 }

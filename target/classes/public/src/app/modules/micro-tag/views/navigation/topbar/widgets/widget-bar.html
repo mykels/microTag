@@ -1,9 +1,9 @@
 <div class="navbar-collapse collapse" uib-collapse="!navbar.collapsed">
     <ul class="nav navbar-right">
 
-        <mt-language-selector></mt-language-selector>
+        <mt-language-selector on-select="onLanguageSelection(language)"></mt-language-selector>
 
-        <mt-connection-status></mt-connection-status>
+        <mt-connection-status on-reconnect="onReconnect()"></mt-connection-status>
     </ul>
     <div class="close-handle visible-xs-block menu-toggler" ng-click="collapse(false)">
         <div class="arrow-left"></div>

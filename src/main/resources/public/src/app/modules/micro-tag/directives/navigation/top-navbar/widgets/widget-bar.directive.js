@@ -9,7 +9,7 @@ function widgetBarDirective() {
 			collapseWidgetBar: '&'
 		},
 		replace: true,
-		templateUrl: 'src/app/modules/micro-tag/views/navigation/topbar/widgets/widget-bar.html',
+		templateUrl: 'widget-bar.html',
 		controller: 'WidgetBarController'
 	};
 }

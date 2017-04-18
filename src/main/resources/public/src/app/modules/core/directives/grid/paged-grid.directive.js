@@ -21,7 +21,7 @@ function pagedGridDirective() {
 			saveCallback: '&',
 			resizeCallback: '&'
 		},
-		templateUrl: 'src/app/modules/core/views/grid/paged-grid.html',
+		templateUrl: 'paged-grid.html',
 		controller: 'PagedGridController'
 	};
 }

@@ -12,14 +12,14 @@ function formDialogDialog() {
             cancelLabel: '@',
             cancelClass: '@',
             cancelVisible: '=?',
-            saveAllowed: '=?',
+            activeForm: '=?',
             saveVisible: '=?',
             saveCallback: '&',
             cancelCallback: '&',
             warningDialog: '=?'
         },
         transclude: true,
-        templateUrl: 'src/app/modules/core/views/dialogs/form-dialog.html',
+        templateUrl: 'form-dialog.html',
         controller: 'FormDialogController'
     };
 }

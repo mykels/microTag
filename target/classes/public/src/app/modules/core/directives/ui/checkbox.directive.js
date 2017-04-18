@@ -8,7 +8,7 @@ function checkboxDirective() {
 			checked: '=',
 			checkboxId: '@'
 		},
-		templateUrl: 'src/app/modules/core/views/ui/checkbox.html',
+		templateUrl: 'checkbox.html',
 		controller: "CheckboxController"
 	};
 }

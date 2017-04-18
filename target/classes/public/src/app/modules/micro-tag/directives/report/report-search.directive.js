@@ -8,7 +8,7 @@ function reportSearchDirective() {
 			reportResultCallback: '&'
 		},
 		replace: true,
-		templateUrl: 'src/app/modules/micro-tag/views/report/report-search.html',
+		templateUrl: 'report-search.html',
 		controller: 'ReportSearchController'
 	};
 }

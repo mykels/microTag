@@ -11,7 +11,7 @@ function detailDirective() {
         },
         priority: 8,
         transclude: true,
-        templateUrl: 'src/app/modules/core/views/ui/detail.html',
+        templateUrl: 'detail.html',
 	    controller: "DetailController"
     };
 }

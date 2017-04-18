@@ -30,13 +30,24 @@
     },
     "css": "assets/css/**/*.css",
     "html": "*.html",
-    "angular": [
-      "vendor/angular/**/*.js",
-      "!vendor/angular/**/*.min.js"
-    ],
-    "angularMin": "!vendor/angular/**/*.min.js",
+    "angular": "vendor/angular/**/*.js",
+    "angularMin": "vendor/angular-min/**/*.min.js",
+    "jquery": {
+      "js": "lib/jquery/**/*.js"
+    },
+    "lib": {
+      "js": [
+        "lib/**/*.js",
+        "!lib/jquery/**/*.js"
+      ],
+      "css": "lib/**/*.css"
+    },
     "vendor": {
-      "js": "vendor/**/*.js",
+      "js": [
+        "vendor/**/*.js",
+        "!vendor/angular/**/*.js",
+        "!vendor/angular-min/**/*.js"
+      ],
       "css": "vendor/**/*.css",
       "fonts": "vendor/**/*.{ttf,woff,woff2,eof,svg}"
     }
@@ -56,6 +67,22 @@
     "templates": {
       "name": "micro-tag-templates.js",
       "path": "dist/js"
+    },
+    "jquery": {
+      "js": {
+        "name": "jquery.js",
+        "path": "dist/lib/jquery/js"
+      }
+    },
+    "lib": {
+      "js": {
+        "name": "lib.js",
+        "path": "dist/lib/js"
+      },
+      "css": {
+        "name": "lib.css",
+        "path": "dist/lib/css"
+      }
     },
     "vendor": {
       "js": {

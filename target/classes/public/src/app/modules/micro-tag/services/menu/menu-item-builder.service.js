@@ -7,6 +7,6 @@ function menuItemBuilder() {
 			title: title,
 			link: title.toLowerCase(),
 			icon: icon
-		}
-	}
+		};
+	};
 }

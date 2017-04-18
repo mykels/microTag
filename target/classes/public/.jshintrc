@@ -53,6 +53,8 @@
     "angular": false,
     "$": false,
     "_": false,
+    "d3": false,
+    "windowResize": false,
     "jQuery": false,
     "J50Npi": false,
     "unescape": false,

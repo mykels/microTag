@@ -14,7 +14,7 @@ function fileBrowserDirective() {
             confirmationDescription: '@',
             confirmationCallback: '&'
         },
-        templateUrl: 'src/app/modules/core/views/files/file-browser.html',
+        templateUrl: 'file-browser.html',
         link: fileBrowserLink,
         controller: 'FileBrowserController'
     };

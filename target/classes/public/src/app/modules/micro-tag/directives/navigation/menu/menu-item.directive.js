@@ -8,7 +8,7 @@ function menuItemDirective() {
 			menuItem: '='
 		},
 		replace: true,
-		templateUrl: 'src/app/modules/micro-tag/views/navigation/menu/menu-item.html',
+		templateUrl: 'menu-item.html',
 		controller: 'MenuItemController'
 	};
 }

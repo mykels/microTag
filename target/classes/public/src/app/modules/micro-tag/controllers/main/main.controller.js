@@ -19,15 +19,11 @@ function mainController($scope, System, EventEmitter, MediaService) {
 		if (MediaService.isXs()) {
 			$scope.layout.mainContentVisible = false;
 		}
-
-		console.info("sidenavOpened!");
 	}
 
 	function handleSidenavClosed() {
 		if (!$scope.layout.mainContentVisible) {
 			$scope.layout.mainContentVisible = true;
 		}
-
-		console.info("sidenavClosed!");
 	}
 }

@@ -8,7 +8,7 @@ function connectionStatusDirective() {
             onReconnect: "&"
 		},
 		replace: true,
-		templateUrl: 'src/app/modules/micro-tag/views/navigation/topbar/widgets/connection-status.html',
+		templateUrl: 'connection-status.html',
 		controller: 'ConnectionStatusController'
 	};
 }

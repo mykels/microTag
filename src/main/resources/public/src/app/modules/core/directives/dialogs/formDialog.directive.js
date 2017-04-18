@@ -19,7 +19,7 @@ function formDialogDialog() {
             warningDialog: '=?'
         },
         transclude: true,
-        templateUrl: 'src/app/modules/core/views/dialogs/form-dialog.html',
+        templateUrl: 'form-dialog.html',
         controller: 'FormDialogController'
     };
 }

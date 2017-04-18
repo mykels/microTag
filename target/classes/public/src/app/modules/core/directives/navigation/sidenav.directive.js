@@ -6,7 +6,7 @@ function sidenavDirective() {
 		restrict: 'AE',
 		scope: {},
 		transclude: true,
-		templateUrl: 'src/app/modules/core/views/navigation/sidenav.html',
+		templateUrl: 'sidenav.html',
 		controller: 'SidenavController'
 	};
 }

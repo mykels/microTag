@@ -8,6 +8,6 @@ function formDirective() {
 			formId: '@'
 		},
 		transclude: true,
-		templateUrl: 'src/app/modules/core/views/form/form.html'
+		templateUrl: 'form.html'
 	};
 }

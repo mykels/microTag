@@ -10,7 +10,7 @@ function datepickerDirective() {
 			disabled: '=?'
 		},
 		replace: false,
-		templateUrl: 'src/app/modules/core/views/datepicker/datepicker.html',
+		templateUrl: 'datepicker.html',
 		controller: 'DatepickerController'
 	};
 }

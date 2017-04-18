@@ -9,7 +9,7 @@ function formSectionDirective() {
 		},
 		replace: true,
 		transclude: true,
-		templateUrl: 'src/app/modules/core/views/form/form-section.html',
+		templateUrl: 'form-section.html',
 		controller: 'FormSectionController'
 	};
 }

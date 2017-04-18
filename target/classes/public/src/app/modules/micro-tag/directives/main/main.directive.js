@@ -5,7 +5,7 @@ function mainDirective() {
 	return {
 		restrict: 'AE',
 		scope: {},
-		templateUrl: 'src/app/modules/micro-tag/views/main/main.html',
+		templateUrl: 'main.html',
 		controller: 'MainController'
 	};
 }

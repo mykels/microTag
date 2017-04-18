@@ -6,7 +6,7 @@ function sessionConfiguratorDialogService($mdDialog) {
     this.open = function (options) {
         return $mdDialog.show({
             controller: 'SessionConfiguratorDialogController',
-            templateUrl: 'src/app/modules/micro-tag/views/statistics/dialogs/session-configurator-dialog.html',
+            templateUrl: 'session-configurator-dialog.html',
             clickOutsideToClose: false,
             locals: {
                 options: options

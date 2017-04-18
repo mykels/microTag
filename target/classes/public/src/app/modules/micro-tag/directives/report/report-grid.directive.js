@@ -8,7 +8,7 @@ function logViewerDirective() {
 			reportRecords: '=',
 			reportFileName: '@'
 		},
-		templateUrl: 'src/app/modules/micro-tag/views/report/report-grid.html',
+		templateUrl: 'report-grid.html',
 		controller: 'ReportGridController'
 	};
 }

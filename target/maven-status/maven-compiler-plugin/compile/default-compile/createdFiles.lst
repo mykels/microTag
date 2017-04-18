@@ -1,5 +1,6 @@
 micro\tag\controllers\ProcessController.class
 micro\tag\controllers\LogController.class
+micro\tag\controllers\ReportController.class
 micro\tag\core\services\http\ResponseStatus.class
 micro\tag\core\services\file\ZipCreator.class
 micro\tag\core\services\http\ResponseWrapperBuilder.class
@@ -9,9 +10,12 @@ micro\tag\domain\model\stream\StreamExtension.class
 micro\tag\core\services\file\FileWriter.class
 micro\tag\core\services\json\JsonSerializerImpl.class
 micro\tag\core\services\file\FileReader.class
+micro\tag\controllers\TerminalController.class
+micro\tag\controllers\ImageController.class
 micro\tag\config\StaticResourceConfiguration.class
 micro\tag\core\services\translate\TranslatorImpl.class
 micro\tag\controllers\DeviceController.class
+micro\tag\controllers\MeasurementController.class
 micro\tag\domain\model\enums\ParsableEnum.class
 micro\tag\controllers\LogFileController.class
 micro\tag\core\services\file\FileCache.class

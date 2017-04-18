@@ -1,0 +1,24 @@
+mg.request_info:
+
+{
+  "num_headers": 8,
+  "remote_port": 54728,
+  "uri": "/translate.lua/asd",
+  "request_method": "GET",
+  "remote_addr": "127.0.0.1",
+  "https": false,
+  "http_version": "1.1",
+  "http_headers": {
+    "Accept-Encoding": "gzip, deflate, br",
+    "Connection": "keep-alive",
+    "Accept-Language": "en-US,en;q=0.8",
+    "Accept": "*/*",
+    "Host": "localhost:7000",
+    "Cache-Control": "no-cache",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.0 Safari/537.36",
+    "Postman-Token": "1abb9f02-ef41-19eb-182a-651dc97b4afe"
+  },
+  "path_info": "/asd",
+  "request_uri": "/translate.lua/asd",
+  "server_port": 7000
+}

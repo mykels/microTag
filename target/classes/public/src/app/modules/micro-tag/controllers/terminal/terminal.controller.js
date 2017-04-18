@@ -65,8 +65,7 @@ function terminalController($scope, $q, TerminalService, ObjectUtils, Keys) {
 	};
 
 	function handleEnter(terminalLine) {
-		if (angular.isDefined(terminalLine) && angular.isDefined(terminalLine.input)
-			&& terminalLine.input.length > 0) {
+		if (angular.isDefined(terminalLine) && angular.isDefined(terminalLine.input) && terminalLine.input.length > 0) {
 			handleInput(terminalLine).then(function () {
 				moveToNextTerminalLine(terminalLine);
 			});

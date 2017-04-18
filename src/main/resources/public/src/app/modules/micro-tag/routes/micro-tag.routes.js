@@ -4,11 +4,11 @@ angular.module('microTag')
 function routesConfig($routeProvider) {
 	$routeProvider
 		.when('/terminal', {
-			templateUrl: 'src/app/modules/micro-tag/views/terminal/terminal.html',
+			templateUrl: 'terminal.html',
 			controller: 'TerminalController'
 		})
 		.when('/settings', {
-			templateUrl: 'src/app/modules/micro-tag/views/settings/settings.html',
+			templateUrl: 'settings.html',
 			controller: 'SettingsController',
 			resolve: {
 				deviceSettings: function (DeviceSettingsService) {
@@ -17,11 +17,11 @@ function routesConfig($routeProvider) {
 			}
 		})
 		.when('/report', {
-			templateUrl: 'src/app/modules/micro-tag/views/report/report.html',
+			templateUrl: 'report.html',
 			controller: 'ReportController'
 		})
 		.when('/logs/', {
-			templateUrl: 'src/app/modules/micro-tag/views/logs/logs.html',
+			templateUrl: 'logs.html',
 			controller: 'LogsController',
 			resolve: {
 				logFiles: function (LogFileService) {
@@ -30,7 +30,7 @@ function routesConfig($routeProvider) {
 			}
 		})
 		.when('/charts', {
-			templateUrl: 'src/app/modules/micro-tag/views/charts/charts.html',
+			templateUrl: 'charts.html',
 			controller: 'ChartsController',
 			resolve: {
 				measurementPoints: function (MeasurementService) {
@@ -39,11 +39,11 @@ function routesConfig($routeProvider) {
 			}
 		})
 		.when('/measurement', {
-			templateUrl: 'src/app/modules/micro-tag/views/measurement/measurement.html',
+			templateUrl: 'measurement.html',
 			controller: 'MeasurementController'
 		})
 		.when('/statistics', {
-			templateUrl: 'src/app/modules/micro-tag/views/statistics/statistics.html',
+			templateUrl: 'statistics.html',
 			controller: 'StatisticsController'
 		})
 		.otherwise({

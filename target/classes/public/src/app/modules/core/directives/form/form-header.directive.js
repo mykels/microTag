@@ -8,11 +8,12 @@ function formHeaderDirective() {
 			saveEnabled: '=',
 			resetEnabled: '=',
 			loadingIndicator: '=',
+			headerTitle: '@',
 			saveCallback: '&',
 			resetCallback: '&'
 		},
 		replace: false,
-		templateUrl: 'src/app/modules/core/views/form/form-header.html',
+		templateUrl: 'form-header.html',
 		controller: 'FormHeaderController'
 	};
 }

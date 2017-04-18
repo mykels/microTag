@@ -135,13 +135,13 @@ p {
 }
 
 h3, h4, h5 {
-    font-weight: 400;
+    font-weight: 200;
     margin-top: 0;
     color: #5b5b60;
 }
 
 h1, h2 {
-    font-weight: 300;
+    font-weight: 200;
     margin-top: 0;
     color: #5b5b60;
 }
@@ -195,7 +195,7 @@ h5.over-title {
     position: absolute;
     top: 0;
     right: 0;
-    z-index: 1049;
+    z-index: 78;
 }
 
 .ajax-white-backdrop:before {
@@ -376,7 +376,7 @@ h5.over-title {
     position: absolute;
     top: 0;
     width: 100%;
-    z-index: 1089;
+    z-index: 77;
     border: none;
     margin-bottom: 0;
     height: 65px;
@@ -388,7 +388,7 @@ h5.over-title {
     height: 3px;
     left: 0;
     right: 0;
-    z-index: 998;
+    z-index: 76;
 }
 
 .navbar .navbar-header {
@@ -567,7 +567,7 @@ h5.over-title {
     right: 0;
     background: #ffffff;
     cursor: pointer;
-    z-index: 1001;
+    z-index: 78;
     min-height: 40px;
 }
 
@@ -988,7 +988,7 @@ h5.over-title {
     bottom: 0;
     background: #f7f7f8;
     overflow: visible;
-    z-index: 1051;
+    z-index: 77;
 }
 
 #sidebar > div, #sidebar .sidebar-container {
@@ -1053,7 +1053,7 @@ h5.over-title {
     }
 
     .app-sidebar-fixed #sidebar > div {
-        z-index: 1000;
+        z-index: 77;
     }
 
     .app-sidebar-closed #sidebar {
@@ -1067,7 +1067,7 @@ h5.over-title {
     }
 
     #sidebar > div {
-        z-index: 1000;
+        z-index: 77;
     }
 }
 
@@ -1303,7 +1303,7 @@ ul.sub-menu li ul.sub-menu li ul.sub-menu li a {
         height: auto;
         bottom: auto;
         width: 260px;
-        z-index: 1050;
+        z-index: 77;
         display: none;
     }
 
@@ -1387,7 +1387,7 @@ ul.sub-menu li ul.sub-menu li ul.sub-menu li a {
         width: 260px;
         background: #efeff0;
         margin-left: 0;
-        z-index: 1051;
+        z-index: 77;
         -webkit-transform: translateZ(0);
     }
 
@@ -1444,11 +1444,11 @@ ul.sub-menu li ul.sub-menu li ul.sub-menu li a {
         overflow: auto;
         padding: 0;
         left: 70px;
-        z-index: 1000;
+        z-index: 77;
     }
 
     .app-sidebar-closed .app-aside > ul.sub-menu > li {
-        z-index: 1000;
+        z-index: 77;
     }
 
     .app-sidebar-closed .app-aside > ul.sub-menu > li a {
@@ -1542,7 +1542,7 @@ ul.sub-menu li ul.sub-menu li ul.sub-menu li a {
     .app-sidebar-closed #sidebar .navbar-form {
         height: 45px;
         position: absolute;
-        z-index: 1060;
+        z-index: 77;
         width: 70px;
     }
 
@@ -1738,7 +1738,7 @@ ul.sub-menu li ul.sub-menu li ul.sub-menu li a {
     font-size: 12px;
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
-    z-index: 1088;
+    z-index: 78;
 }
 
 #app > footer .footer-inner {
@@ -1797,7 +1797,7 @@ ul.sub-menu li ul.sub-menu li ul.sub-menu li a {
     border-left: 1px solid #c8c7cc !important;
     border-bottom: 1px solid #c8c7cc !important;
     width: 240px;
-    z-index: 1050;
+    z-index: 79;
 }
 
 .settings.active {
@@ -2072,63 +2072,6 @@ ul.sub-menu li ul.sub-menu li ul.sub-menu li a {
 
 .theme-6 .element {
     background: #131E26;
-}
-
-/* ---------------------------------------------------------------------- */
-/*  OFF SIDEBAR
-/* ---------------------------------------------------------------------- */
-#off-sidebar {
-    bottom: 0;
-    position: fixed;
-    right: -260px;
-    top: 64px;
-    -moz-transition: all 0.3s !important
-    0s;
-    -o-transition: all 0.3s !important
-    0s;
-    -webkit-transition: all 0.3s !important;
-    -webkit-transition-delay: 0s;
-    transition: all 0.3s !important
-    0s;
-    width: 260px;
-    z-index: 1091;
-    background: #ffffff;
-    border-left: 1px solid #c8c7cc;
-    border-top: 1px solid #c8c7cc;
-    overflow: hidden;
-}
-
-#off-sidebar .tab-content {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    top: 45px;
-}
-
-@media (max-width: 991px) {
-    #off-sidebar {
-        position: fixed;
-        top: 0;
-        right: 0;
-        z-index: 0;
-        -webkit-transform: translate3d(260px, 0, 0);
-        transform: translate3d(260px, 0, 0);
-        -moz-transition: -moz-transform 300ms ease 0s;
-        -o-transition: -o-transform 300ms ease 0s;
-        -webkit-transition: -webkit-transform 300ms ease;
-        -webkit-transition-delay: 0s;
-        transition: transform 300ms ease 0s;
-    }
-}
-
-#off-sidebar .tab-pane {
-    height: 100%;
-    padding: 0;
-}
-
-#off-sidebar div[perfect-scrollbar] {
-    overflow: hidden !important;
 }
 
 .app-mobile #off-sidebar div[perfect-scrollbar] {
@@ -12319,7 +12262,7 @@ td.small-width {
 /* ---------------------------------------------------------------------- */
 
 .micro-tag-footer {
-    z-index: 100 !important;
+    z-index: 78 !important;
 }
 
 /* ---------------------------------------------------------------------- */
@@ -12610,9 +12553,15 @@ td.small-width {
     padding-bottom: 4px;
 }
 
+.dialog-container {
+    max-height: 90%;
+}
+
 .dialog-header {
     padding-bottom: 3px;
     margin: 5px 0 10px;
+    min-width: 25em;
+    max-width: 35em;
     border-bottom: 1px solid #cdcdcd;
 }
 
@@ -12628,7 +12577,7 @@ td.small-width {
 }
 
 .form-header {
-    padding-bottom: 43px;
+    padding-bottom: 5px;
     margin: 5px 0 10px;
     border-bottom: 1px solid #cdcdcd;
 }
@@ -12813,6 +12762,8 @@ div.ui-grid-cell input {
     max-height: 409px;
     max-width: 259px;
     min-width: 259px;
+    padding-right: 259px;
+    border-right: 1px solid #c8c7cc;
 }
 
 /******** terminal related ***********/

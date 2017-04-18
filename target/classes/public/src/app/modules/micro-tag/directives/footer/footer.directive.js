@@ -8,7 +8,7 @@ function footerDirective() {
 
 		},
 		replace: true,
-		templateUrl: 'src/app/modules/micro-tag/views/footer/footer.html',
+		templateUrl: 'footer.html',
 		controller: 'FooterController'
 	};
 }

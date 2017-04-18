@@ -28,5 +28,5 @@ function logService(CollectionUtils, Navigator, HttpCaller, MailUtils) {
 			subject: 'Please solve my problem',
 			body: 'I have a problem that need to be fixed. The relevant logs are attached'
 		});
-	}
+	};
 }

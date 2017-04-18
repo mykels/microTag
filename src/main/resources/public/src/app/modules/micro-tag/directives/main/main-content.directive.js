@@ -6,7 +6,7 @@ function mainContentDirective() {
 		restrict: 'AE',
 		scope: {},
 		replace:true,
-		templateUrl: 'src/app/modules/micro-tag/views/main/main-content.html',
+		templateUrl: 'main-content.html',
 		controller: 'MainContentController'
 	};
 }

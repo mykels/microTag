@@ -10,7 +10,7 @@ function formFieldDirective() {
 		},
 		replace: true,
 		transclude:true,
-		templateUrl: 'src/app/modules/core/views/form/form-field.html',
+		templateUrl: 'form-field.html',
 		controller: 'FormFieldController'
 	};
 }

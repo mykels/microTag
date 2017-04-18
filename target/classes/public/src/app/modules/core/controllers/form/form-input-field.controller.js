@@ -1,9 +1,10 @@
 angular.module('microTag.core')
-	.controller('FormInputFieldController', formInputFieldController);
+    .controller('FormInputFieldController', formInputFieldController);
 
-function formInputFieldController($scope) {
-	activate();
+function formInputFieldController($scope, ObjectUtils) {
+    activate();
 
-	function activate() {
-	}
+    function activate() {
+        $scope.required = ObjectUtils.defaultValue($scope.isRequired, true);
+    }
 }
