@@ -1,7 +1,7 @@
 angular.module('microTag')
     .controller('StatisticsController', statisticsController);
 
-function statisticsController($scope, $q, $timeout, LoadingService, Timer, MeasurementService, SessionConfiguratorDialogService) {
+function statisticsController($scope, $q, $timeout, LoadingService, Timer, MeasurementService, ObjectUtils, SessionConfiguratorDialogService) {
     var self = this;
 
     $scope.handleNewSession = handleNewSession;
@@ -37,18 +37,19 @@ function statisticsController($scope, $q, $timeout, LoadingService, Timer, Measu
             buildMultiChartPart('line', 'min', '#ec3327'),
             buildMultiChartPart('line', 'max', '#3d96ff'),
             buildMultiChartPart('line', 'mean', '#ff60eb'),
-            buildMultiChartPart('line', 'stdUpperBound', '#ec7a59'),
-            buildMultiChartPart('line', 'stdBottomBound', '#ec7a59')
+            buildMultiChartPart('line', 'stdUpperBound', '#ec7a59', 'dashed'),
+            buildMultiChartPart('line', 'stdBottomBound', '#ec7a59', 'dashed')
         ];
     }
 
-    function buildMultiChartPart(type, key, color) {
+    function buildMultiChartPart(type, key, color, chartClass) {
         return {
             values: [],
             yAxis: 1,
             type: type,
             key: key,
-            color: color
+            color: color,
+            classed: ObjectUtils.defaultValue(chartClass, '')
         };
     }
 

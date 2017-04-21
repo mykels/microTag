@@ -9,8 +9,8 @@ function translationLoader(HttpCaller) {
 	function activate() {
 		self.translationConfig = {
 			type: 'Translations',
-            // getUrl: '/languages/translation/',
-			getUrl: '/translate.lua/',
+            getUrl: '/languages/translation/',
+			// getUrl: '/translate.lua/',
 			logTitle: "Languages",
 			unexpectedErrorLog: "Could not download translations"
 		};

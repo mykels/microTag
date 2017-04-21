@@ -1,7 +1,7 @@
 angular.module('microTag')
-    .controller('LogChartController', logChartController);
+    .controller('LineChartController', lineChartController);
 
-function logChartController($scope, EventEmitter) {
+function lineChartController($scope, EventEmitter) {
     activate();
 
     function activate() {
@@ -22,7 +22,7 @@ function logChartController($scope, EventEmitter) {
                 type: 'lineChart',
                 margin: {
                     top: 20,
-                    right: 20,
+                    right: 40,
                     bottom: 40,
                     left: 55
                 },
@@ -34,21 +34,21 @@ function logChartController($scope, EventEmitter) {
                 },
                 useInteractiveGuideline: false,
                 staggerLabels: true,
-                showLegend: true,
+                showLegend: false,
+                useVoronoi: true,
                 showValues: true,
                 xAxis: {
-                    axisLabel: 'Time (ms)'
+                    axisLabel: 'Sample #'
                 },
-                yAxis: {
-                    axisLabel: 'Voltage (v)',
+                yAxis1: {
+                    axisLabel: 'Reading',
                     tickFormat: function (d) {
                         return d3.format('.02f')(d);
                     },
                     axisLabelDistance: 30
                 },
-                zoom: getZoomProperties(),
                 callback: function (chart) {
-                    console.info("log chart is loaded!");
+                    console.info("statistics chart is ready!");
                 }
             }
         };
@@ -58,15 +58,6 @@ function logChartController($scope, EventEmitter) {
         if (angular.isDefined($scope.chartFullHeight) && !$scope.chartFullHeight) {
             $scope.options.chart.height = 450;
         }
-    }
-
-    function getZoomProperties() {
-        return {
-            enabled: true,
-            useNiceScale: false,
-            useFixedDomain: true,
-            unzoomEventType: 'dblclick.zoom'
-        };
     }
 
     function repaintGraph() {

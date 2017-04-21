@@ -1,39 +1,44 @@
 angular.module('microTag')
-	.service('TerminalService', terminalService);
+    .service('TerminalService', terminalService);
 
 function terminalService(HttpHandler, HttpCaller) {
-	var self = this;
+    var self = this;
 
-	activate();
+    activate();
 
-	function activate() {
-		self.terminalConfig = {
-			type: 'Terminal Command',
-			executeCommandUrl: '/terminal/execute/',
-			showSuccessLog: false,
-			showLoader: false
-		};
-	}
+    function activate() {
+        self.terminalConfig = {
+            type: 'Terminal Command',
+            executeCommandUrl: '/terminal/execute/',
+            showSuccessLog: false,
+            showLoader: false
+        };
+    }
 
-	this.execute = function (command) {
-		return HttpCaller.handleHttpRequest({
-			executionLog: 'Executing terminal command ' + command,
-			httpHandlerFunction: HttpHandler.getAndResolve,
-			httpHandlerUrl: self.terminalConfig.executeCommandUrl + command,
-			getEntityWhenResolved: false,
-			entityConfig: self.terminalConfig,
-			expectedErrorLog: 'Command could not be executed',
-			logTitle: "Command Execution",
-			unexpectedErrorLog: 'Command could not be executed'
-		}).then(function (response) {
-			return {
-				lines: parseOutput(response.data.output),
-				isError: response.data.isError
-			};
-		});
-	};
+    this.execute = function (command) {
+        return HttpCaller.handleHttpRequest({
+            executionLog: 'Executing terminal command ' + command,
+            httpHandlerFunction: HttpHandler.getAndResolve,
+            httpHandlerUrl: self.terminalConfig.executeCommandUrl + command,
+            getEntityWhenResolved: false,
+            entityConfig: self.terminalConfig,
+            expectedErrorLog: 'Command could not be executed',
+            logTitle: "Command Execution",
+            unexpectedErrorLog: 'Command could not be executed'
+        }).then(function (response) {
+            return parseOutput(response.data);
+        });
+    };
 
-	function parseOutput(output) {
-		return output.split("\n");
-	}
+    function parseOutput(response) {
+        if (response.type === 'text') {
+            parseTextOutput(response);
+        }
+
+        return response;
+    }
+
+    function parseTextOutput(response) {
+        response.data = response.data.split("\n");
+    }
 }
