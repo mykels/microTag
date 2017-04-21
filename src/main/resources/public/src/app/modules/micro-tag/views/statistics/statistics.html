@@ -15,8 +15,7 @@
 <mt-form ng-if="sessionHandler.active">
     <div class="col-lg-10">
         <mt-form-section section-title="Measurement Chart">
-            <mt-statistics-chart chart-data="statisticsData" max-y="maxY"
-                                 chart-init-callback="handleChartInitialization(api)">
+            <mt-statistics-chart chart-data="statisticsData" peak="peak">
             </mt-statistics-chart>
         </mt-form-section>
     </div>
@@ -38,7 +37,7 @@
                 <h4>{{statisticsInformation.max}}</h4>
             </mt-form-field>
             <mt-form-field field-title="RANGE" field-name="statisticsInformation.range">
-                <h4>TODO</h4>
+                <h4>{{statisticsInformation.range}}</h4>
             </mt-form-field>
         </mt-form-section>
     </div>

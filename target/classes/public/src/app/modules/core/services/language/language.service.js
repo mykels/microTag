@@ -12,6 +12,7 @@ function languageService($translate, HttpCaller, Languages, StorageService) {
         self.languagesConfig = {
             type: 'Languages',
             getUrl: '/languages',
+            // getUrl: '/languages.lua',
             logTitle: "Languages",
             unexpectedErrorLog: "Could not get available languages"
         };

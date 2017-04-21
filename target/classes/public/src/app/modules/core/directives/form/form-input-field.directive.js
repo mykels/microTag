@@ -9,7 +9,8 @@ function formInputFieldDirective() {
             fieldName: "@",
             fieldType: "@",
             fieldModel: "=",
-            isRequired: '='
+            isRequired: '=',
+            fieldDisabled: '=?'
         },
         replace: true,
         templateUrl: 'form-input-field.html',

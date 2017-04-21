@@ -27,14 +27,18 @@ function statisticsController($scope, $q, $timeout, LoadingService, Timer, Measu
         self.minIndex = 1;
         self.maxIndex = 2;
         self.meanIndex = 3;
-        self.stdIndex = 4;
+        self.stdUpperBoundIndex = 4;
+        self.stdBottonBoundIndex = 5;
+
+        self.constantMinSamples = 10;
 
         $scope.statisticsData = [
             buildMultiChartPart('scatter', 'measurement', '#05ec05'),
             buildMultiChartPart('line', 'min', '#ec3327'),
             buildMultiChartPart('line', 'max', '#3d96ff'),
             buildMultiChartPart('line', 'mean', '#ff60eb'),
-            buildMultiChartPart('line', 'std', '#9e36ff')
+            buildMultiChartPart('line', 'stdUpperBound', '#ec7a59'),
+            buildMultiChartPart('line', 'stdBottomBound', '#ec7a59')
         ];
     }
 
@@ -63,10 +67,6 @@ function statisticsController($scope, $q, $timeout, LoadingService, Timer, Measu
         $scope.resultCsv = $scope.deferredResultCsv.promise;
     }
 
-    $scope.handleChartInitialization = function (api) {
-        $scope.chartApi = api;
-    };
-
     function handleNewSession() {
         SessionConfiguratorDialogService.open({
             startCallback: startSession,
@@ -82,7 +82,7 @@ function statisticsController($scope, $q, $timeout, LoadingService, Timer, Measu
             $scope.statisticsData[self.minIndex].values = measurementPoints.minLine;
             $scope.statisticsData[self.maxIndex].values = measurementPoints.maxLine;
 
-            $scope.maxY = $scope.statisticsData[self.maxIndex].values[0].y;
+            $scope.peak = $scope.statisticsData[self.maxIndex].values[0].y;
         });
     }
 
@@ -107,10 +107,9 @@ function statisticsController($scope, $q, $timeout, LoadingService, Timer, Measu
             measurementPoint.shape = inferShapeForPoint(measurementPoint);
             addMeasurementPoint(measurementPoint);
             updateStatisticsInformation();
-            addMeanPoint();
-            addStdPoint();
-            fixMaxAndMinLines();
-            $scope.chartApi.refreshWithTimeout(100);
+            updateMeanChart();
+            updateStdBounds();
+            updateMinMaxCharts();
         });
     };
 
@@ -137,6 +136,7 @@ function statisticsController($scope, $q, $timeout, LoadingService, Timer, Measu
         $scope.statisticsInformation.max = calculateMax();
         $scope.statisticsInformation.mean = calculateMean();
         $scope.statisticsInformation.std = calculateStd();
+        $scope.statisticsInformation.range = calculateRange();
     }
 
     function calculateMin() {
@@ -165,40 +165,37 @@ function statisticsController($scope, $q, $timeout, LoadingService, Timer, Measu
             }, 0) / measurementPoints) : 0;
     }
 
-    function addMeanPoint() {
-        var meanIndex = $scope.statisticsData[self.meanIndex].values.length + 1;
-
-        $scope.statisticsData[self.meanIndex].values.push({
-            x: meanIndex,
-            y: $scope.statisticsInformation.mean
-        });
+    function calculateRange() {
+        return $scope.statisticsInformation.max - $scope.statisticsInformation.min;
     }
 
-    function addStdPoint() {
-        var stdIndex = $scope.statisticsData[self.stdIndex].values.length + 1;
-
-        $scope.statisticsData[self.stdIndex].values.push({
-            x: stdIndex,
-            y: $scope.statisticsInformation.std
-        });
+    function updateMeanChart() {
+        updateConstantChart(self.meanIndex, $scope.statisticsInformation.mean);
     }
 
-    // TODO: remove when find another solution
-    function fixMaxAndMinLines() {
-        var measurementIndex = $scope.statisticsData[self.measurementIndex].values.length;
+    function updateStdBounds() {
+        updateConstantChart(self.stdUpperBoundIndex, $scope.statisticsInformation.mean + $scope.statisticsInformation.std);
+        updateConstantChart(self.stdBottonBoundIndex, $scope.statisticsInformation.mean - $scope.statisticsInformation.std);
+    }
 
-        if (measurementIndex >= 10) {
-            var min = $scope.statisticsData[self.minIndex].values[0].y;
-            var max = $scope.statisticsData[self.maxIndex].values[0].y;
+    function updateMinMaxCharts() {
+        updateConstantChart(self.minIndex, $scope.statisticsData[self.minIndex].values[0].y);
+        updateConstantChart(self.maxIndex, $scope.statisticsData[self.maxIndex].values[0].y);
+    }
 
-            $scope.statisticsData[self.minIndex].values.push({
-                x: measurementIndex,
-                y: min
-            });
+    function updateConstantChart(multiChartIndex, constantValue) {
+        var measurementIndex = $scope.statisticsData[self.measurementIndex].values.length + 1;
 
-            $scope.statisticsData[self.maxIndex].values.push({
-                x: measurementIndex,
-                y: max
+        $scope.statisticsData[multiChartIndex].values = [];
+
+        if (measurementIndex < self.constantMinSamples) {
+            measurementIndex += self.constantMinSamples;
+        }
+
+        for (var i = 1; i <= measurementIndex; i++) {
+            $scope.statisticsData[multiChartIndex].values.push({
+                x: i,
+                y: constantValue
             });
         }
     }
@@ -216,7 +213,7 @@ function statisticsController($scope, $q, $timeout, LoadingService, Timer, Measu
             return {
                 sample: point.x,
                 reading: point.y
-            }
+            };
         });
     }
 }

@@ -3,6 +3,7 @@
 -------------------------------------------------------------------------
 
 json = require "json"
+stringUtils = require "stringUtils"
 
 -------------------------------------------------------------------------
 -- |                      Handler Registration                       | --
@@ -28,26 +29,13 @@ function register_hanlder(method, handler)
     handlers[method] = handler
 end
 
---TODO: strinUtils
-function split(str, sep)
-    if sep == nil then
-        sep = "%s"
-    end
-    local t = {}; i = 1
-    for str in string.gmatch(str, "([^" .. sep .. "]+)") do
-        t[i] = str
-        i = i + 1
-    end
-    return t
-end
-
 --TODO: fileUtils
 
 function file_listing_to_table(fileListing)
     fileNames = {}
-    lines = split(fileListing, "\n")
+    lines = stringUtils.split(fileListing, "\n")
     for i = 1, #lines do
-        lineParts = split(lines[i], " ")
+        lineParts = stringUtils.split(lines[i], " ")
         fileName = lineParts[#lineParts]
 
         if string.match(fileName, "json") then

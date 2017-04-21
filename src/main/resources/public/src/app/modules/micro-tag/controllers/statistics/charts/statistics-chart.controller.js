@@ -6,7 +6,6 @@ function statisticsChartController($scope, EventEmitter) {
 
     function activate() {
         initOptions();
-        initConfig();
         initDefaults();
         registerEventListeners();
     }
@@ -51,21 +50,8 @@ function statisticsChartController($scope, EventEmitter) {
                 yDomain1: ([0, calculatePeak()]),
                 callback: function (chart) {
                     console.info("statistics chart is ready!");
-                    if (angular.isDefined($scope.chartInitCallback)) {
-                        $scope.chartInitCallback({api: $scope.api});
-                    }
                 }
             }
-        };
-    }
-
-    function initConfig() {
-        $scope.config = {
-            refreshDataOnly: true,
-            deepWatchOptions: true,
-            deepWatchData: false,
-            deepWatchDataDepth: 0,
-            debounce: 100
         };
     }
 
@@ -85,6 +71,18 @@ function statisticsChartController($scope, EventEmitter) {
     }
 
     function calculatePeak() {
-        return $scope.maxY + 500;
+        return angular.isDefined($scope.peak) ? $scope.peak + 500 : 5000;
     }
+
+
+    function handleChartDataChange() {
+        console.info("updating chart data");
+
+        if (angular.isDefined($scope.api)) {
+            $scope.api.refreshWithTimeout(100);
+        }
+    }
+
+    $scope.$watch("chartData", handleChartDataChange, true);
+    $scope.$watch("peak", repaintChart, true);
 }

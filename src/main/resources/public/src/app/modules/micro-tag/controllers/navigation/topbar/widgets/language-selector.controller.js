@@ -28,7 +28,7 @@ function languageSelectorController($scope, Languages, LanguageService) {
         var locale = LanguageService.getCurrentLocale();
 
         if (angular.isDefined(locale)) {
-            selectLanguage(Languages.getByProperty("locale", locale))
+            selectLanguage(Languages.getByProperty("locale", locale));
         }
     }
 

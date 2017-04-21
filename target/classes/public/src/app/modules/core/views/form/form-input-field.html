@@ -4,7 +4,7 @@
         <label class="control-label">
             {{::fieldTitle}} <span class="symbol required"></span>
         </label>
-        <input type="{{::fieldType}}"
+        <input type="{{::fieldType}}" ng-disabled="fieldDisabled"
                class="form-control ng-pristine ng-empty ng-invalid ng-invalid-required ng-touched"
                name="{{::fieldName}}" ng-model="fieldModel" ng-required="{{required}}"/>
     </div>

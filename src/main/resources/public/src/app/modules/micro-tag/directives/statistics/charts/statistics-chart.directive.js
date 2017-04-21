@@ -7,10 +7,9 @@ function statisticsChartDirective() {
         scope: {
             chartTitle: '@',
             chartData: '=',
-            chartInitCallback: '&',
-            maxY: '='
+            peak: '='
         },
-        templateUrl: 'src/app/modules/micro-tag/views/statistics/charts/statistics-chart.html',
+        templateUrl: 'statistics-chart.html',
         controller: 'StatisticsChartController'
     };
 }
