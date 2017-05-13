@@ -248,7 +248,7 @@ function pagedGridController($timeout, $scope, $templateCache, uiGridConstants, 
 		var gridLength = Math.min($scope.gridOptions.paginationPageSize,
 			ObjectUtils.defaultValue($scope.filteredEntityCount, entitiesLength));
 
-		return Math.max(110, gridLength * $scope.gridOptions.rowHeight) + 48;
+		return Math.max(120, gridLength * $scope.gridOptions.rowHeight) + 56;
 	}
 
 	function initInlineActions() {

@@ -21,7 +21,7 @@ import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Bootstrapper.class)
-public class EnumTranslator {
+public class LanguageTranslator {
 	private static final String sourceFileName = File.separator + "languages" + File.separator + "en.json";
 	private static final List<Language> translatedLanguages = Arrays.asList(
 			Language.ru,

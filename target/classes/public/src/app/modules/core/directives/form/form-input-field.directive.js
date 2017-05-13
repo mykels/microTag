@@ -5,12 +5,13 @@ function formInputFieldDirective() {
     return {
         restrict: 'AE',
         scope: {
-            fieldTitle: "@",
-            fieldName: "@",
-            fieldType: "@",
-            fieldModel: "=",
+            fieldTitle: '@',
+            fieldName: '@',
+            fieldType: '@',
+            fieldModel: '=',
             isRequired: '=',
-            fieldDisabled: '=?'
+            fieldDisabled: '=?',
+            fieldTranslate: '=?'
         },
         replace: true,
         templateUrl: 'form-input-field.html',

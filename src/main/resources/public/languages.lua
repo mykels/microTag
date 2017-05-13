@@ -4,6 +4,7 @@
 
 json = require "json"
 stringUtils = require "stringUtils"
+fileUtils = require "fileUtils"
 
 -------------------------------------------------------------------------
 -- |                      Handler Registration                       | --
@@ -29,38 +30,10 @@ function register_hanlder(method, handler)
     handlers[method] = handler
 end
 
---TODO: fileUtils
-
-function file_listing_to_table(fileListing)
-    fileNames = {}
-    lines = stringUtils.split(fileListing, "\n")
-    for i = 1, #lines do
-        lineParts = stringUtils.split(lines[i], " ")
-        fileName = lineParts[#lineParts]
-
-        if string.match(fileName, "json") then
-            table.insert(fileNames, fileName)
-        end
-    end
-
-    return fileNames;
-end
-
---TODO: fileUtils
-function list_files(dir)
-    local languageFile = io.popen("dir " .. dir)
-
-    if languageFile then
-        return file_listing_to_table(languageFile:read("*a"))
-    else
-        mg.write("failed to read file")
-    end
-end
-
 register_hanlder("GET", function()
     --    TODO: get from env
     local languagesPath = "C:\\devl\\work\\MicroTagMaster\\resources\\languages\\"
-    ok(list_files(languagesPath))
+    ok(fileUtils.list_files(languagesPath))
 end)
 
 register_hanlder("POST", function()

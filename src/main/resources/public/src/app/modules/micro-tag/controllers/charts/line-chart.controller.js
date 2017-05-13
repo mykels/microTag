@@ -48,7 +48,8 @@ function lineChartController($scope, EventEmitter) {
                     axisLabelDistance: 30
                 },
                 callback: function (chart) {
-                    console.info("statistics chart is ready!");
+                    console.info("line chart is ready!");
+                    repaintGraph();
                 }
             }
         };

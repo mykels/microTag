@@ -1,17 +1,22 @@
 angular.module('microTag')
     .controller('DeviceSettingsFormController', deviceSettingsFormController);
 
-function deviceSettingsFormController($scope, DeviceSettingsService, DocumentUtils, LogLevels, ObjectUtils) {
+function deviceSettingsFormController($scope, DeviceSettingsService, DocumentUtils, ObjectUtils) {
     activate();
 
     function activate() {
         backupConfig();
-
-        $scope.logLevels = LogLevels.values;
+        initFields();
     }
 
     function backupConfig() {
-        $scope.backupDeviceConfig = ObjectUtils.clone($scope.deviceSettings);
+        $scope.backupDeviceSettings = ObjectUtils.clone($scope.deviceSettings);
+    }
+
+    function initFields() {
+        DeviceSettingsService.getFields().then(function (fields) {
+            $scope.fields = fields;
+        });
     }
 
     $scope.handleSave = function () {
@@ -19,7 +24,7 @@ function deviceSettingsFormController($scope, DeviceSettingsService, DocumentUti
     };
 
     $scope.handleReset = function () {
-        ObjectUtils.copyInto($scope.backupDeviceConfig, $scope.deviceSettings);
+        ObjectUtils.copyInto($scope.backupDeviceSettings, $scope.deviceSettings);
     };
 
     $scope.handleDownload = function () {
@@ -31,6 +36,6 @@ function deviceSettingsFormController($scope, DeviceSettingsService, DocumentUti
     };
 
     $scope.hasConfigurationChanged = function () {
-        return !ObjectUtils.deepCompare($scope.deviceSettings, $scope.backupDeviceConfig);
+        return !ObjectUtils.deepCompare($scope.deviceSettings, $scope.backupDeviceSettings);
     };
 }

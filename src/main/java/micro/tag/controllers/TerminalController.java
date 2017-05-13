@@ -109,7 +109,7 @@ public class TerminalController {
 			output.put("type", "text");
 		}
 
-		Thread.sleep(2000);
+		Thread.sleep(300);
 		return output;
 	}
 

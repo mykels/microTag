@@ -13,6 +13,12 @@ function focusMeDirective($timeout, $parse) {
 					});
 				}
 			});
+
+            element.bind('blur', function () {
+                $timeout(function () {
+                    model.assign(scope, false);
+                });
+            });
 		}
 	};
 }

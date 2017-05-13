@@ -7,7 +7,7 @@ function imageService(System) {
 	activate();
 
 	function activate() {
-		self.imageUrl = "/image/";
+		self.imageUrl = "/image.lua/";
 	}
 
 	this.constructUrl = function (imageName) {

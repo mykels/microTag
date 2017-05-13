@@ -3,14 +3,21 @@
             ng-click="handleSingleMeasurement()" ng-disabled="!sessionHandler.active">
         {{'MEASUREMENT' | translate}}
     </button>
-    <button ng-if="!sessionHandler.active" class="btn btn-primary" ng-click="handleNewSession()">
+    <button ng-show="!sessionHandler.active" class="btn btn-primary" ng-click="handleNewSession()">
         {{'NEW SESSION' | translate}}
     </button>
-    <button ng-if="sessionHandler.active" class="btn btn-warning" ng-csv="resultCsv" ng-click="closeSession()"
-            csv-header="resultCsvHeaders" filename="test.csv">
-        {{('CLOSE SESSION'| translate) + (sessionTimer.value > 0 ? ' (' + sessionTimer.text + ') ': '')}}
-    </button>
+
+    <mt-csv-exporter ng-show="sessionHandler.active" exported-class="btn-warning"
+                     exported-header="['sample', 'reading', 'tagId', 'swId', 'hwId', 'serial']"
+                     exported-filename="statistics.csv" on-exporter-ready="onExporterReady(exportHandler)"
+                     on-click="closeSession()">
+        {{(' CLOSE SESSION'| translate) + (sessionTimer.value > 0 ? ' (' + sessionTimer.text + ') ': '')}}
+    </mt-csv-exporter>
 </mt-header>
+
+<h1 ng-if="!sessionHandler.active">
+    {{"START A NEW SESSION TO GATHER STATISTICS" | translate}}
+</h1>
 
 <mt-form ng-if="sessionHandler.active">
     <div class="col-lg-10">
@@ -21,23 +28,23 @@
     </div>
     <div class="col-lg-2">
         <mt-form-section section-title="Measurement Information">
-            <mt-form-field field-title="Last Reading" field-name="statisticsInformation.lastReading">
-                <h4>{{statisticsInformation.lastReading | number:1}}</h4>
+            <mt-form-field field-title="{{'LAST READING' | translate}}" field-name="statisticsInformation.lastReading">
+                <h5>{{statisticsInformation.lastReading | number:1}}</h5>
             </mt-form-field>
             <mt-form-field field-title="STD" field-name="statisticsInformation.std">
-                <h4>{{statisticsInformation.std | number:1}}</h4>
+                <h5>{{statisticsInformation.std | number:1}}</h5>
             </mt-form-field>
             <mt-form-field field-title="MEAN" field-name="statisticsInformation.mean">
-                <h4>{{statisticsInformation.mean | number:1}}</h4>
+                <h5>{{statisticsInformation.mean | number:1}}</h5>
             </mt-form-field>
             <mt-form-field field-title="MIN" field-name="statisticsInformation.min">
-                <h4>{{statisticsInformation.min}}</h4>
+                <h5>{{statisticsInformation.min | number:1}}</h5>
             </mt-form-field>
             <mt-form-field field-title="MAX" field-name="statisticsInformation.max">
-                <h4>{{statisticsInformation.max}}</h4>
+                <h5>{{statisticsInformation.max | number:1}}</h5>
             </mt-form-field>
             <mt-form-field field-title="RANGE" field-name="statisticsInformation.range">
-                <h4>{{statisticsInformation.range}}</h4>
+                <h5>{{statisticsInformation.range | number:1}}</h5>
             </mt-form-field>
         </mt-form-section>
     </div>

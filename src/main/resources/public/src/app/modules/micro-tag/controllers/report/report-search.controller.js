@@ -15,7 +15,7 @@ function reportSearchController($scope, ReportService, LoadingService) {
 	}
 
 	$scope.getReport = function (startDate, endDate) {
-		ReportService.getReport(startDate, endDate).then(function (reportRecords) {
+		ReportService.get(startDate, endDate).then(function (reportRecords) {
 			if (angular.isDefined($scope.reportResultCallback)) {
 				$scope.reportResultCallback({
 					records: reportRecords,

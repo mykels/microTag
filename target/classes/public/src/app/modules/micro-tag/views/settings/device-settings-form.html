@@ -36,7 +36,7 @@
         <div class="col-md-4">
             <mt-form-section section-title="Customize Device">
                 <mt-form-field field-name="uploadDeviceConfiguration">
-                    <mt-file-browser file-handler="handleUpload(file)" file-filter=".json"
+                    <mt-file-browser file-handler="handleUpload(file)" file-filter=".zip"
                                      mode="button" browse-label="{{'UPLOAD DEVICE SETTINGS' | translate}}"
                                      confirmation-title="Device Settings"
                                      confirmation-description="All of your device settings will be overwritten!">
@@ -47,22 +47,22 @@
                         {{'DOWNLOAD DEVICE SETTINGS' | translate}}
                     </button>
                 </mt-form-field>
-                <mt-form-field field-title="Current taggant file ID" field-name="currentTaggantFileID">
-                    <h4>1129c4a0</h4>
+                <mt-form-field field-title="Current taggant file ID" field-name="tagFileId"
+                               field-model="deviceSettings.tagFileId">
                 </mt-form-field>
             </mt-form-section>
             <mt-form-section section-title="Current device info">
-                <mt-form-field field-title="TAG ID" field-name="tagId">
-                    <h5>11ca3bbv34</h5>
+                <mt-form-field field-title="TAG ID" field-name="tagId"
+                               field-model="deviceSettings.tagId">
                 </mt-form-field>
-                <mt-form-field field-title="S/W ID" field-name="swId">
-                    <h5>G3.5-4-dev</h5>
+                <mt-form-field field-title="S/W ID" field-name="swId"
+                               field-model="deviceSettings.swId">
                 </mt-form-field>
-                <mt-form-field field-title="H/W ID" field-name="hwId">
-                    <h5>ABBA07</h5>
+                <mt-form-field field-title="H/W ID" field-name="hwId"
+                               field-model="deviceSettings.hwId">
                 </mt-form-field>
-                <mt-form-field field-title="Serial" field-name="serial">
-                    <h5>#6887421336997</h5>
+                <mt-form-field field-title="Serial" field-name="serial"
+                               field-model="deviceSettings.serial">
                 </mt-form-field>
             </mt-form-section>
         </div>

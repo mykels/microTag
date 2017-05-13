@@ -5,9 +5,14 @@
     </button>
 </mt-header>
 
-<ng-form name="deviceConfigurationForm" mt-full-height debounce-wait="300">
+<h1 ng-if="!measurementHandler.active">
+    {{"RUN A MEASUREMENT TO GET RESULTS" | translate}}
+</h1>
+
+<ng-form name="deviceConfigurationForm" ng-if="measurementHandler.active"
+         mt-full-height debounce-wait="300">
     <mt-form>
-        <div class="col-md-6">
+        <div class="col-md-4">
             <mt-form-section section-title="Measurement Result">
                 <div class="measurement-result-container">
                     <img class="measurement-base-image" ng-src="{{resultHandler.baseImage}}"/>

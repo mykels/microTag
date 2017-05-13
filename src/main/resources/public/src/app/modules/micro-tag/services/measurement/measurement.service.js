@@ -10,9 +10,9 @@ function measurementService(HttpHandler, HttpCaller) {
 		self.measurementConfig = {
 			type: 'Measurement',
 			getUrl: '/measurement/points',
-			runUrl: '/measurement/run',
-            pointUrl: '/measurement/point',
-            sessionPointsUrl: '/measurement/session/points',
+			runUrl: '/measurement.lua/measurement/run',
+            pointUrl: '/measurement.lua/measurement/point',
+            sessionPointsUrl: '/measurement.lua/measurement/session/points',
 			logTitle: "Measurement",
 			unexpectedErrorLog: 'Could not run measurement',
 			showSuccessLog: false,

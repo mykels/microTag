@@ -3,14 +3,15 @@
     <p class="line">$ for information on a specific command, type 'help'
     </p>
 
-    <div class="input-line" ng-repeat="terminalLine in terminalLines track by $index">
+    <div class="input-line" ng-repeat="terminalLine in terminalState.terminalLines track by $index">
         <div ng-if="!terminalLine.current">
             <p class="line">
                 {{'> ' + terminalLine.input}}
             </p>
 
             <p ng-repeat="outputLine in terminalLine.output.data track by $index"
-               class="line output-line" ng-class="{'error-line':terminalLine.output.isError}">
+               class="line output-line" ng-class="{'error-line':!(terminalLine.output.success=='true')}"
+               ng-click="handleOutputClick(terminalLine.output)">
                 {{outputLine}}
             </p>
         </div>
@@ -19,11 +20,11 @@
             <span class="line">> </span>
             <input type="text" ng-model="terminalLine.input" class="transparent-input"
                    ng-keydown="handleKeydown($event, terminalLine)" ng-disabled="terminalLine.disabled"
-                   mt-focus-me="terminalHandler.focusOnTerminalLine"/>
+                   mt-focus-me="terminalState.focusOnTerminalLine"/>
         </div>
     </div>
 
-    <div class="input-line" ng-if="terminalHandler.loading">
+    <div class="input-line" ng-if="terminalState.loading">
         <p class="line">
             <mt-dot-loader></mt-dot-loader>
         </p>

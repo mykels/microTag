@@ -13,11 +13,11 @@ function objectUtilsService() {
 	};
 
 	this.defaultValue = function (value, defaultValue, valueTransformer) {
-		return hasValue(value) ?
-			(angular.isDefined(valueTransformer) ? valueTransformer(value) : value) : defaultValue;
-	};
+        return hasValue(value) ?
+            (angular.isDefined(valueTransformer) ? valueTransformer(value) : value) : defaultValue;
+    };
 
-	function hasValue(value) {
+    function hasValue(value) {
 		return angular.isString(value) ? !_.isEmpty(value) :
 			angular.isDefined(value) && value !== null && value !== "null";
 	}

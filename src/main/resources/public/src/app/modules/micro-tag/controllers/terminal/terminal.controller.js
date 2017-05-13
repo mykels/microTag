@@ -1,40 +1,17 @@
 angular.module('microTag')
     .controller('TerminalController', terminalController);
 
-function terminalController($scope, ColorUtils) {
-    $scope.addTab = addTab;
-    $scope.removeTab = removeTab;
-    $scope.handleCommand = handleCommand;
-    $scope.handleTabSelect = handleTabSelect;
-    $scope.handleTabDeselect = handleTabDeselect;
-
+function terminalController($scope, ColorUtils, TerminalTabService) {
     activate();
 
+    $scope.handleCommand = handleCommand;
+    $scope.handleOutputClick = handleOutputClick;
+
     function activate() {
-        initTabs();
-    }
-
-    function initTabs() {
-        $scope.tabs = [];
-        addTab({title: 'Terminal', type: 'terminal', closable: false});
-    }
-
-    function addTab(tab) {
-        if (angular.isUndefined(tab.closable)) {
-            tab.closable = true;
-        }
-
-        tab.active = true;
-
-        if ($scope.tabs > 1) {
-            $scope.tabs[$scope.tabs.length - 1].active = false;
-        }
-
-        $scope.tabs.push(tab);
-    }
-
-    function removeTab(tab) {
-        $scope.tabs.splice($scope.tabs.indexOf(tab), 1);
+        $scope.tabState = TerminalTabService.tabState;
+        $scope.removeTab = TerminalTabService.removeTab;
+        $scope.handleTabSelect = TerminalTabService.handleTabSelect;
+        $scope.handleTabDeselect = TerminalTabService.handleTabDeselect;
     }
 
     function handleCommand(terminalLine) {
@@ -44,7 +21,8 @@ function terminalController($scope, ColorUtils) {
     }
 
     function addChartTab(terminalOutput) {
-        $scope.addTab({
+        TerminalTabService.addTab({
+            id: terminalOutput.id,
             title: terminalOutput.chartName,
             type: 'chart',
             data: prepareChartData(terminalOutput.data)
@@ -59,15 +37,13 @@ function terminalController($scope, ColorUtils) {
         }];
     }
 
-    function handleTabSelect(tab) {
-        if (tab.type === 'terminal') {
-            $scope.focusTerminal = true;
+    function handleOutputClick(terminalOutput) {
+        if (terminalOutput.type === 'chart') {
+            goToChartTab(terminalOutput);
         }
     }
 
-    function handleTabDeselect(tab) {
-        if (tab.type === 'terminal') {
-            $scope.focusTerminal = false;
-        }
+    function goToChartTab(terminalOutput) {
+        TerminalTabService.setActiveTab(TerminalTabService.findTab(terminalOutput.id));
     }
 }

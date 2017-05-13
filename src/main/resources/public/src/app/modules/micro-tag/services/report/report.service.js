@@ -7,21 +7,21 @@ function reportService(HttpCaller, DateUtils) {
 	activate();
 
 	function activate() {
-		self.reportConfig = {
+		self.configConfig = {
 			type: 'Report',
-			getUrl: '/report/',
+			getUrl: '/report.lua/report/',
 			successLog: "Report is fetched successfully",
 			unexpectedErrorLog: 'Could not get report'
 		};
 	}
 
-	this.getReport = function (startDate, endDate) {
-		var backupGetUrl = self.reportConfig.getUrl;
-		self.reportConfig.getUrl += DateUtils.stringify(startDate, undefined, '_') +
+	this.get = function (startDate, endDate) {
+		var backupGetUrl = self.configConfig.getUrl;
+		self.configConfig.getUrl += DateUtils.stringify(startDate, undefined, '_') +
 			'/' + DateUtils.stringify(endDate, undefined, '_');
 
-		return HttpCaller.get(self.reportConfig).then(function (response) {
-			self.reportConfig.getUrl = backupGetUrl;
+		return HttpCaller.get(self.configConfig).then(function (response) {
+			self.configConfig.getUrl = backupGetUrl;
 			return response;
 		});
 	};

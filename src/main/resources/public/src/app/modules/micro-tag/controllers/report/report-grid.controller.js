@@ -19,7 +19,7 @@ function reportGridController($scope, uiGridConstants, MediaService) {
 
 	function initReportRecords() {
 		$scope.reportRecords.forEach(function (reportRecord) {
-			reportRecord.id = reportRecord.date.getTime();
+			reportRecord.id = reportRecord.date;
 		});
 	}
 
@@ -30,7 +30,7 @@ function reportGridController($scope, uiGridConstants, MediaService) {
 				displayName: 'Date',
 				visible: true,
 				cellFilter: 'simpleDate',
-				width: "140",
+				width: '140',
 				sort: {
 					direction: uiGridConstants.DESC,
 					priority: 1
@@ -39,42 +39,42 @@ function reportGridController($scope, uiGridConstants, MediaService) {
 				name: 'result',
 				displayName: 'Result',
 				visible: true,
-				width: "90"
+				width: '90'
 			}, {
 				name: 'amp',
 				displayName: 'Amp',
 				visible: true,
-				width: "90"
+				width: '90'
 			}, {
 				name: 'snr',
 				displayName: 'Snr',
 				visible: true,
-				width: "90"
+				width: '90'
 			}, {
 				name: 'tagId',
 				displayName: 'Tag ID',
 				visible: true,
-				width: "90"
+				width: '90'
 			}, {
 				name: 'swId',
 				displayName: 'S/W ID',
 				visible: true,
-				width: "90"
+				width: '90'
 			}, {
 				name: 'hwId',
 				displayName: 'H/W ID',
 				visible: true,
-				width: "90"
+				width: '90'
 			}, {
 				name: 'serial',
 				displayName: 'Serial',
 				visible: true,
-				width: "120"
+				width: '120'
 			}, {
 				name: 'eSignature',
 				displayName: 'E-Signature',
 				visible: isESignatureColumnVisible(),
-				width: "600"
+				width: '600'
 			}
 		];
 	}

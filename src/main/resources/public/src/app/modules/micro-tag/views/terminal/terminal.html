@@ -1,12 +1,20 @@
-<md-tabs ng-if="tabs.length > 1" md-selected="selectedIndex" md-border-bottom md-autoselect md-dynamic-height="true"
-         md-swipe-content="true" md-no-ink="false" md-no-ink-bar="false" md-border-bottom="false">
-    <md-tab ng-repeat="tab in tabs" md-active="tab.active"
+<mt-terminal-emulator ng-if="tabState.tabs.length === 1" command-callback="handleCommand(terminalLine)">
+</mt-terminal-emulator>
+
+<md-tabs ng-if="tabState.tabs.length > 1" md-selected="selectedIndex" md-border-bottom md-autoselect
+         md-dynamic-height="true" md-swipe-content="true" md-no-ink="false" md-no-ink-bar="false"
+         md-swipe-content="false" md-border-bottom="false">
+    <md-tab ng-repeat="tab in tabState.tabs" md-active="tab.active"
             md-on-select="handleTabSelect(tab)" md-on-deselect="handleTabDeselect(tab)">
         <md-tab-label>
             <div layout="row" layout-wrap layout-padding class="terminal-tab">
                 <div flex="50">
-                    <h4 ng-if="tab.type === 'terminal'">{{tab.title.toUpperCase() | translate}}</h4>
-                    <h4 ng-if="tab.type !== 'terminal'">{{tab.title}}</h4>
+                    <h4 ng-if="tab.type === 'terminal'">
+                        {{tab.title.toUpperCase() | translate}}
+                    </h4>
+                    <h4 ng-if="tab.type !== 'terminal'">
+                        {{tab.title}}
+                    </h4>
                 </div>
                 <div flex="10" ng-if="tab.closable">
                     <a class="tab-close" ng-click="removeTab(tab)">
@@ -18,7 +26,8 @@
         <md-tab-body>
             <div ng-show="tab.type === 'terminal'">
                 <mt-terminal-emulator command-callback="handleCommand(terminalLine)"
-                                      terminal-padding="50" terminal-focus="focusTerminal">
+                                      output-click-callback="handleOutputClick(terminalOutput)"
+                                      terminal-padding="50">
                 </mt-terminal-emulator>
             </div>
             <mt-line-chart ng-if="tab.type === 'chart'" chart-data="tab.data"
@@ -27,7 +36,3 @@
         </md-tab-body>
     </md-tab>
 </md-tabs>
-
-<mt-terminal-emulator ng-if="tabs.length === 1" command-callback="handleCommand(terminalLine)"
-                      terminal-focus="focusTerminal">
-</mt-terminal-emulator>

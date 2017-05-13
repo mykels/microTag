@@ -1,1 +1,14 @@
-{"wifiApName":"someWifisssssssssssss","wifiApPassword":"someWifiPass","mdDnsName":"localhost.home","secureServer":"localhost:55996","volume":"3","lcdBrightness":"2","logLevel":"NORMAL"}
+{
+  "wifiApName": "someWifisssssssssssss",
+  "wifiApPassword": "someWifiPass",
+  "mdDnsName": "localhost.home",
+  "secureServer": "localhost:55996",
+  "volume": "3",
+  "lcdBrightness": "2",
+  "logLevel": "NORMAL",
+  "tagId": "11ca3eeqw2",
+  "swId":"G3.5-4-dev",
+  "hwId":"ABBA07",
+  "serial":"#6887421330000",
+  "tagFileId": "wait4ww3"
+}

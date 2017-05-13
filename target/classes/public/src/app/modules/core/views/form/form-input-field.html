@@ -1,9 +1,12 @@
 <ng-form name="inputFieldForm" novalidate>
-    <div class="form-group"
+    <div class="form-group form-input"
          ng-class="{'has-error':inputFieldForm[fieldName].$dirty &amp;&amp; inputFieldForm[fieldName].$invalid, 'has-success':inputFieldForm[fieldName].$valid}">
-        <label class="control-label">
-            {{::fieldTitle}} <span class="symbol required"></span>
-        </label>
+        <h4 class="control-label">
+            <span ng-if="::fieldTranslate">{{fieldTitle.toUpperCase() | translate}}</span>
+            <span ng-if="::!fieldTranslate">{{::fieldTitle}}</span>
+            <span class="symbol required"></span>
+        </h4>
+
         <input type="{{::fieldType}}" ng-disabled="fieldDisabled"
                class="form-control ng-pristine ng-empty ng-invalid ng-invalid-required ng-touched"
                name="{{::fieldName}}" ng-model="fieldModel" ng-required="{{required}}"/>

@@ -9,13 +9,13 @@ function reportService(HttpCaller, DateUtils) {
 	function activate() {
 		self.reportConfig = {
 			type: 'Report',
-			getUrl: '/report/',
+			getUrl: '/report.lua/report/',
 			successLog: "Report is fetched successfully",
 			unexpectedErrorLog: 'Could not get report'
 		};
 	}
 
-	this.getReport = function (startDate, endDate) {
+	this.get = function (startDate, endDate) {
 		var backupGetUrl = self.reportConfig.getUrl;
 		self.reportConfig.getUrl += DateUtils.stringify(startDate, undefined, '_') +
 			'/' + DateUtils.stringify(endDate, undefined, '_');

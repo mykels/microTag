@@ -1,42 +1,48 @@
 angular.module('microTag')
-	.service('DeviceSettingsService', deviceSettingsService);
+    .service('DeviceSettingsService', deviceSettingsService);
 
-function deviceSettingsService(HttpCaller, Navigator, FileUploader, DeviceSettingsConverter) {
-	var self = this;
+function deviceSettingsService(HttpCaller, Navigator, FileUploader, ConfigService, DeviceSettingsConverter) {
+    var self = this;
 
-	activate();
+    activate();
 
-	function activate() {
-		self.deviceConfigurationConfig = {
-			type: 'Device Settings',
-			getUrl: '/device/settings',
-			saveUrl: '/device/settings',
-			uploadUrl: '/device/settings/upload',
-			downloadUrl: '/device/settings/download',
-			fromServerConverter: DeviceSettingsConverter.fromServer,
-			toServerConverter: DeviceSettingsConverter.toServer,
-			logTitle: "Device Settings",
-			unexpectedErrorLog: 'Could not get device settings'
-		};
-	}
+    function activate() {
+        self.deviceConfigurationConfig = {
+            type: 'Device Settings',
+            getUrl: '/device.lua/settings',
+            saveUrl: '/device.lua/save',
+            uploadUrl: '/device.lua/upload',
+            downloadUrl: '/device.lua/download',
+            fromServerConverter: DeviceSettingsConverter.fromServer,
+            toServerConverter: DeviceSettingsConverter.toServer,
+            logTitle: "Device Settings",
+            unexpectedErrorLog: 'Could not get device settings'
+        };
+    }
 
-	this.get = function () {
-		return HttpCaller.get(self.deviceConfigurationConfig);
-	};
+    this.get = function () {
+        return HttpCaller.get(self.deviceConfigurationConfig);
+    };
 
-	this.save = function (deviceSettings) {
-		return HttpCaller.save(self.deviceConfigurationConfig, deviceSettings);
-	};
+    this.save = function (deviceSettings) {
+        return HttpCaller.save(self.deviceConfigurationConfig, deviceSettings);
+    };
 
-	this.upload = function (deviceSettingsFile) {
-		return FileUploader.upload({
-			type: self.deviceConfigurationConfig.type,
-			uploadUrl: self.deviceConfigurationConfig.uploadUrl,
-			file: deviceSettingsFile
-		});
-	};
+    this.upload = function (deviceSettingsFile) {
+        return FileUploader.upload({
+            type: self.deviceConfigurationConfig.type,
+            uploadUrl: self.deviceConfigurationConfig.uploadUrl,
+            file: deviceSettingsFile
+        });
+    };
 
-	this.download = function () {
-		Navigator.download(self.deviceConfigurationConfig.downloadUrl);
-	};
+    this.download = function () {
+        Navigator.download(self.deviceConfigurationConfig.downloadUrl, "device-settings.zip");
+    };
+
+    this.getFields = function () {
+        return ConfigService.get().then(function (config) {
+            return config.settings.fields;
+        });
+    };
 }

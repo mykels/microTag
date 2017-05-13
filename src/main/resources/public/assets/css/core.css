@@ -63,8 +63,8 @@ body {
     direction: ltr;
     overflow-x: hidden;
     height: 100%;
-    font-family: Helvetica, Arial, sans-serif;
-    font-size: 13px;
+    font-family: 'Raleway', 'Amatica SC', 'Open Sans Condensed', 'Helvetica', sans-serif;
+    font-size: 16px;
     padding: 0;
     margin: 0;
     background: #f7f7f8;
@@ -122,15 +122,15 @@ a:hover, a:focus, a:active {
 }
 
 h1, h2 {
-    font-family: "Raleway", sans-serif;
+    font-family: 'Raleway', 'Amatica SC', 'Open Sans Condensed', sans-serif;
 }
 
 h3, h4, h5 {
-    font-family: "Raleway", Helvetica, Arial, sans-serif;
+    font-family: 'Raleway', 'Amatica SC', 'Open Sans Condensed', sans-serif;
 }
 
 p {
-    font-family: "Raleway", Helvetica, Arial, sans-serif;
+    font-family: 'Raleway', 'Amatica SC', 'Open Sans Condensed', sans-serif;
     font-size: 1.4em;
 }
 
@@ -739,7 +739,7 @@ h5.over-title {
     -webkit-border-radius: 3px;
     border-radius: 3px;
     color: #8e8e93;
-    font-size: 11px;
+    font-size: 14px;
     font-weight: 600;
     letter-spacing: 0;
     line-height: 27px;
@@ -929,7 +929,7 @@ h5.over-title {
 
 .navbar .navbar-right .dropdown-menu.dropdown-messages .drop-down-wrapper ul > li a .preview {
     display: block;
-    font-size: 11px;
+    font-size: 14px;
     line-height: normal;
     color: #aeacb4;
 }
@@ -937,7 +937,7 @@ h5.over-title {
 .navbar .navbar-right .dropdown-menu.dropdown-messages .drop-down-wrapper ul > li a .time {
     display: block;
     float: right;
-    font-size: 11px;
+    font-size: 14px;
     font-style: italic;
     font-weight: 600;
     color: #aeacb4;
@@ -2201,7 +2201,7 @@ ul.sub-menu li ul.sub-menu li ul.sub-menu li a {
 
 #off-sidebar .sidebar-title {
     color: #aeacb4;
-    font-size: 11px;
+    font-size: 14px;
     margin: 15px 10px 10px 10px;
     text-transform: uppercase;
 }
@@ -2793,7 +2793,7 @@ ul.sub-menu li ul.sub-menu li ul.sub-menu li a {
 }
 
 .text-extra-small {
-    font-size: 11px !important;
+    font-size: 14px !important;
 }
 
 .text-small {
@@ -3275,7 +3275,7 @@ a.text-light:hover {
 
 .tooltip-notification .tooltip-notification-inner .message {
     color: #BFC0C1;
-    font-size: 11px;
+    font-size: 14px;
     margin-top: -4px;
 }
 
@@ -3390,7 +3390,7 @@ a.text-light:hover {
 .dropdown-menu.dropdown-dark .dropdown-header {
     padding: 8px 8px 6px;
     color: #f7f7f8;
-    font-size: 11px;
+    font-size: 14px;
 }
 
 .dropdown-menu.dropdown-dark .divider {
@@ -4257,7 +4257,7 @@ a.text-light:hover {
 .panel-note .panel-footer .timestamp {
     color: #999999;
     display: inline-block;
-    font-size: 11px;
+    font-size: 14px;
 }
 
 .panel-note .note-options a {
@@ -4631,7 +4631,7 @@ a.text-light:hover {
 
 .accordion .panel-heading .accordion-toggle > .icon-arrow {
     font-family: FontAwesome;
-    font-size: 11px;
+    font-size: 14px;
     padding: 0 5px;
     display: inline-block;
     font-family: FontAwesome;
@@ -4996,7 +4996,7 @@ a.text-light:hover {
 .badge-new {
     background-color: #007AFF;
     border-radius: 12px 12px 12px 12px !important;
-    font-size: 11px !important;
+    font-size: 14px !important;
     font-weight: 300;
     height: 18px;
     padding: 3px 6px;
@@ -5321,6 +5321,11 @@ span.input-help > input {
 
 .form-control {
     color: inherit;
+}
+
+.form-input {
+    padding: 5px 5px;
+    margin: 5px 5px;
 }
 
 select.form-control {
@@ -5988,7 +5993,7 @@ input[type="radio"], input[type="checkbox"] {
 
 .clip-check label:after {
     display: inline-block;
-    font-size: 11px;
+    font-size: 14px;
     height: 19px;
     left: 4px;
     position: absolute;
@@ -6032,7 +6037,7 @@ input[type="radio"], input[type="checkbox"] {
 }
 
 .clip-check.check-sm label:after {
-    font-size: 11px;
+    font-size: 14px;
     height: 13px;
     left: 2px;
     width: 13px;
@@ -8911,7 +8916,7 @@ input[type="radio"], input[type="checkbox"] {
     border-width: 0;
     box-shadow: none;
     color: #FFFFFF !important;
-    font-size: 11px !important;
+    font-size: 14px !important;
     font-weight: 300;
     padding: 3px 7px;
     position: absolute;
@@ -10542,7 +10547,7 @@ nav.links a {
 }
 
 .main-login .copyright {
-    font-size: 11px;
+    font-size: 14px;
     margin: 0 auto;
     padding: 10px 10px 0;
     text-align: center;
@@ -11534,7 +11539,7 @@ td.small-width {
 .discussion li.messages-date {
     display: inline-block;
     color: #8e8e93;
-    font-size: 11px;
+    font-size: 14px;
     font-weight: 500;
     line-height: 1;
     margin: 10px 0;
@@ -11746,7 +11751,7 @@ td.small-width {
 
 .messages-list .messages-item .messages-item-time .text {
     color: #8e8e93;
-    font-size: 11px;
+    font-size: 14px;
 }
 
 .messages-list .messages-item .messages-item-time .messages-item-actions {
@@ -11916,7 +11921,7 @@ td.small-width {
 
 .message-header .message-time {
     color: #c2c2c5;
-    font-size: 11px;
+    font-size: 14px;
 }
 
 .message-subject {
@@ -12560,7 +12565,11 @@ td.small-width {
 }
 
 .dialog-container {
-    max-height: 90%;
+    max-height: 65% !important;
+}
+
+.md-dialog-container {
+    max-height: 65% !important;
 }
 
 .dialog-header {
@@ -12589,7 +12598,7 @@ td.small-width {
 }
 
 .btn-fixed-small {
-    width: 20em;
+    width: 21em;
 }
 
 /******** ui grid overrides ***********/
@@ -12765,7 +12774,7 @@ div.ui-grid-cell input {
 .micro-tag-sidenav {
     overflow: hidden;
     height: 100%;
-    max-height: 409px;
+    max-height: 358px;
     max-width: 259px;
     min-width: 259px;
     padding-right: 259px;
@@ -12946,7 +12955,8 @@ div.ui-grid-cell input {
 }
 
 .input-line {
-
+    box-sizing: border-box;
+    vertical-align: middle;
 }
 
 .error-line {

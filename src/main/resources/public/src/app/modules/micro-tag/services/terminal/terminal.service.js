@@ -9,7 +9,7 @@ function terminalService(HttpHandler, HttpCaller) {
     function activate() {
         self.terminalConfig = {
             type: 'Terminal Command',
-            executeCommandUrl: '/terminal/execute/',
+            executeCommandUrl: '/terminal.lua/execute/',
             showSuccessLog: false,
             showLoader: false
         };

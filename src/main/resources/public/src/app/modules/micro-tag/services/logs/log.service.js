@@ -1,26 +1,21 @@
 angular.module('microTag')
 	.service('LogService', logService);
 
-function logService(CollectionUtils, Navigator, HttpCaller, MailUtils) {
+function logService(CollectionUtils, Navigator, MailUtils) {
 	var self = this;
 
 	activate();
 
 	function activate() {
-		self.reportConfig = {
+		self.configConfig = {
 			type: 'logs',
-			getUrl: '/logs/',
-			downloadUrl: '/logs/download/'
+			downloadUrl: '/logs.lua/download'
 		};
 	}
 
-	this.getLogs = function (logFileName) {
-		return HttpCaller.get(self.reportConfig, logFileName);
-	};
-
 	this.download = function (logFileNames) {
 		var encodedLogs = CollectionUtils.join(logFileNames, ",");
-		Navigator.download("{0}/{1}".format(self.reportConfig.downloadUrl, encodedLogs));
+		Navigator.download("{0}/{1}".format(self.configConfig.downloadUrl, encodedLogs));
 	};
 
 	this.sendMail = function () {

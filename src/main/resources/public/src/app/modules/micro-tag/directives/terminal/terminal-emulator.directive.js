@@ -6,8 +6,8 @@ function terminalEmulatorDirective() {
         restrict: 'AE',
         scope: {
             commandCallback: '&',
-            terminalPadding: '@',
-            terminalFocus: '=?'
+            outputClickCallback: '&',
+            terminalPadding: '@'
         },
         templateUrl: 'terminal-emulator.html',
         controller: 'TerminalEmulatorController'

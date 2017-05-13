@@ -9,10 +9,10 @@ function deviceSettingsService(HttpCaller, Navigator, FileUploader, DeviceSettin
 	function activate() {
 		self.deviceConfigurationConfig = {
 			type: 'Device Settings',
-			getUrl: '/device/settings',
-			saveUrl: '/device/settings',
-			uploadUrl: '/device/settings/upload',
-			downloadUrl: '/device/settings/download',
+			getUrl: '/device.lua/settings',
+			saveUrl: '/device.lua/save',
+			uploadUrl: '/device.lua/upload',
+			downloadUrl: '/device.lua/download',
 			fromServerConverter: DeviceSettingsConverter.fromServer,
 			toServerConverter: DeviceSettingsConverter.toServer,
 			logTitle: "Device Settings",
@@ -37,6 +37,6 @@ function deviceSettingsService(HttpCaller, Navigator, FileUploader, DeviceSettin
 	};
 
 	this.download = function () {
-		Navigator.download(self.deviceConfigurationConfig.downloadUrl);
+		Navigator.download(self.deviceConfigurationConfig.downloadUrl, "device-settings.zip");
 	};
 }

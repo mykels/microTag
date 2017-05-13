@@ -1,11 +1,13 @@
 angular.module('microTag')
     .controller('StatisticsController', statisticsController);
 
-function statisticsController($scope, $q, $timeout, LoadingService, Timer, MeasurementService, ObjectUtils, SessionConfiguratorDialogService) {
+function statisticsController($scope, Timer, MeasurementService, ObjectUtils,
+                              DeviceSettingsService, SessionConfiguratorDialogService) {
     var self = this;
 
     $scope.handleNewSession = handleNewSession;
     $scope.closeSession = closeSession;
+    $scope.onExporterReady = onExporterReady;
 
     activate();
 
@@ -13,7 +15,6 @@ function statisticsController($scope, $q, $timeout, LoadingService, Timer, Measu
         initSessionHandler();
         initStatisticsData();
         initStatisticsInformation();
-        initResultCsvProperties();
     }
 
     function initSessionHandler() {
@@ -30,6 +31,7 @@ function statisticsController($scope, $q, $timeout, LoadingService, Timer, Measu
         self.stdUpperBoundIndex = 4;
         self.stdBottonBoundIndex = 5;
 
+        self.sampleCount = 1;
         self.constantMinSamples = 10;
 
         $scope.statisticsData = [
@@ -62,12 +64,6 @@ function statisticsController($scope, $q, $timeout, LoadingService, Timer, Measu
         };
     }
 
-    function initResultCsvProperties() {
-        $scope.resultCsvHeaders = ['sample', 'reading'];
-        $scope.deferredResultCsv = $q.defer();
-        $scope.resultCsv = $scope.deferredResultCsv.promise;
-    }
-
     function handleNewSession() {
         SessionConfiguratorDialogService.open({
             startCallback: startSession,
@@ -91,10 +87,14 @@ function statisticsController($scope, $q, $timeout, LoadingService, Timer, Measu
         $scope.sessionHandler.active = false;
 
         if ($scope.statisticsData[self.measurementIndex].values.length > 0) {
-            downloadResultCsv().then(freeStatisticsResources);
+            exportResultCsv().then(freeStatisticsResources);
         } else {
             freeStatisticsResources();
         }
+    }
+
+    function onExporterReady(exportHandler) {
+        self.exportHandler = exportHandler;
     }
 
     function freeStatisticsResources() {
@@ -115,6 +115,7 @@ function statisticsController($scope, $q, $timeout, LoadingService, Timer, Measu
     };
 
     function addMeasurementPoint(measurementPoint) {
+        measurementPoint.x = self.sampleCount++;
         $scope.statisticsData[self.measurementIndex].values.push(measurementPoint);
         $scope.statisticsInformation.lastReading = measurementPoint.y;
     }
@@ -201,20 +202,32 @@ function statisticsController($scope, $q, $timeout, LoadingService, Timer, Measu
         }
     }
 
-    function downloadResultCsv() {
-        LoadingService.start();
-        return $timeout(function () {
-            $scope.deferredResultCsv.resolve(calculateResultCsv());
-            LoadingService.stop();
-        }, 500);
+    function exportResultCsv() {
+        return DeviceSettingsService.get().then(function (deviceSettings) {
+            return self.exportHandler.export(calculateResultCsv(deviceSettings));
+        });
     }
 
-    function calculateResultCsv() {
+    function calculateResultCsv(deviceSettings) {
         return $scope.statisticsData[self.measurementIndex].values.map(function (point) {
-            return {
-                sample: point.x,
-                reading: point.y
-            };
+            var statisticResult = {};
+
+            addPointData(statisticResult, point);
+            addDeviceData(statisticResult, deviceSettings);
+
+            return statisticResult;
         });
+    }
+
+    function addPointData(statisticResult, point) {
+        statisticResult.sample = point.x;
+        statisticResult.reading = point.y;
+    }
+
+    function addDeviceData(statisticResult, deviceSettings) {
+        statisticResult.tagId = deviceSettings.tagId;
+        statisticResult.swId = deviceSettings.swId;
+        statisticResult.hwId = deviceSettings.hwId;
+        statisticResult.serial = deviceSettings.serial;
     }
 }

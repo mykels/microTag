@@ -1,20 +1,20 @@
 angular.module('microTag')
-	.service('DeviceSettingsConverter', deviceSettingsConverterService);
+    .service('DeviceSettingsConverter', deviceSettingsConverterService);
 
-function deviceSettingsConverterService(LogLevels) {
-	this.fromServer = function (deviceSettings) {
-		if (angular.isDefined(deviceSettings)) {
-			deviceSettings.logLevel = LogLevels.getByValue(deviceSettings.logLevel);
-		}
+function deviceSettingsConverterService(ObjectUtils) {
+    this.fromServer = function (deviceSettings) {
+        return deviceSettings;
+    };
 
-		return deviceSettings;
-	};
+    this.toServer = function (deviceSettings) {
+        if (angular.isDefined(deviceSettings)) {
+            ObjectUtils.forEachProperty(deviceSettings, function (deviceSetting) {
+                if (deviceSettings[deviceSetting].type === 'enum') {
+                    deviceSettings[deviceSetting] = deviceSettings[deviceSetting].value;
+                }
+            });
+        }
 
-	this.toServer = function (deviceSettings) {
-		if (angular.isDefined(deviceSettings)) {
-			deviceSettings.logLevel = deviceSettings.logLevel.value;
-		}
-
-		return deviceSettings;
-	};
+        return deviceSettings;
+    };
 }

@@ -1,6 +1,10 @@
-<div class="form-group">
-    <label class="control-label">
+<div class="form-group form-input">
+    <h4 class="control-label">
         {{::fieldTitle}}
-    </label>
-    <ng-transclude></ng-transclude>
+    </h4>
+
+    <h5 ng-if="fieldModel">
+        {{fieldModel}}
+    </h5>
+    <ng-transclude ng-if="!fieldModel"></ng-transclude>
 </div>

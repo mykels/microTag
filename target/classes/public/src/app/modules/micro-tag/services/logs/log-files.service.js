@@ -9,8 +9,8 @@ function logFilesService(HttpCaller, LogFileConverter) {
 	function activate() {
 		self.reportConfig = {
 			type: 'Log Files',
-			getUrl: '/log/files',
-			deleteUrl: '/log/files/',
+			getUrl: '/logs.lua/logs',
+			deleteUrl: '/logs.lua/logs/',
 			fromServerConverter: LogFileConverter.fromServer,
 			logTitle: "Log Files",
 			unexpectedErrorLog: 'Could not get log files'

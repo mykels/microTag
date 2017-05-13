@@ -14,25 +14,23 @@
 
     <div class="dialog-footer" ng-hide="::footerVisible===false">
         <div class="pull-right dialog-actions">
-    	<span title="{{!activeForm.$invalid ? '' : 'Invalid fields marked in red'}}">
-	        <button class="btn {{::saveClass}}" ng-if="::saveVisible"
+            <button class="btn {{::saveClass}}" ng-if="::saveVisible"
                     ng-click="handleSave()" ng-disabled="activeForm.$invalid">
-	            <div ng-if="::saveLabel">
-	                {{saveLabel.toUpperCase() | translate}}
-	            </div>
-	            <div ng-if="::!saveLabel">
-	                 {{'SAVE' | translate}}
-	            </div>
-	        </button>
-	    </span>
-            <button title="" class="btn {{::cancelClass}}" ng-if="::cancelVisible"
+                           <span ng-if="::saveLabel">
+                                {{saveLabel.toUpperCase() | translate}}
+                            </span>
+                <span ng-if="::!saveLabel">
+                                {{'SAVE' | translate}}
+                            </span>
+            </button>
+            <button class="btn {{::cancelClass}}" ng-if="::cancelVisible"
                     ng-click="handleCancel()">
-                <div ng-if="::cancelLabel">
+                <span ng-if="::cancelLabel">
                     {{cancelLabel.toUpperCase() | translate}}
-                </div>
-                <div ng-if="::!cancelLabel">
+                </span>
+                <span ng-if="::!cancelLabel">
                     {{'CANCEL' | translate}}
-                </div>
+                </span>
             </button>
         </div>
     </div>

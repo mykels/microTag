@@ -1,0 +1,19 @@
+<mt-form-input-field ng-if="field.type === 'text' || field.type === 'password'"
+                     field-title="{{::field.name | fieldNameToTitle}}"
+                     field-name="{{::field.name}}" field-type="{{::field.type}}"
+                     field-model="fieldModelContainer[field.name]">
+</mt-form-input-field>
+
+<mt-form-field ng-if="field.type === 'slider'" field-title="{{::field.name | fieldNameToTitle}}"
+               field-name="{{::field.name}}">
+    <mt-slider slider-model="fieldModelContainer[field.name]"
+               slider-min="{{::field.min}}" slider-max="{{::field.max}}">
+    </mt-slider>
+</mt-form-field>
+
+<mt-form-field ng-if="field.type === 'enum'" field-title="{{::field.name | fieldNameToTitle}}"
+               field-name="{{::field.name}}">
+    <mt-dynum-selector options="field.options" dynum-name="{{::field.name}}" is-required="true"
+              chosen-option="fieldModelContainer[field.name]">
+    </mt-dynum-selector>
+</mt-form-field>

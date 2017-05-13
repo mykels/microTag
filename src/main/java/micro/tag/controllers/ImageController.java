@@ -38,7 +38,6 @@ public class ImageController {
 		this.env = env;
 	}
 
-
 	@PostConstruct
 	public void onInit() {
 		logger.info("==== ImageController is initialized ====");

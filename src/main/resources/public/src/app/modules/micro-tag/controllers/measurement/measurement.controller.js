@@ -1,55 +1,64 @@
 angular.module('microTag')
-	.controller('MeasurementController', measurementController);
+    .controller('MeasurementController', measurementController);
 
 function measurementController($scope, $timeout, MeasurementService, ImageUtils, StringUtils) {
-	var self = this;
+    var self = this;
 
-	activate();
+    activate();
 
-	function activate() {
-		// TODO: should be configurable?
-		self.blinkTimes = 4;
+    function activate() {
+        // TODO: should be configurable?
+        self.blinkTimes = 4;
 
-		initResultHandler();
-	}
+        initHandler();
+        initResultHandler();
+    }
 
-	function initResultHandler() {
-		$scope.resultHandler = {
-			blinkCount: 0,
-			baseImage: "",
-			resultImage: "",
-			resultImageVisible: false
-		};
-	}
+    function initHandler() {
+        $scope.measurementHandler = {
+            active: false
+        };
+    }
 
-	$scope.runMeasurement = function () {
-		return MeasurementService.run().then(function (measurement) {
-			handleResult(measurement.result);
-			animateResult();
-		});
-	};
+    function initResultHandler() {
+        $scope.resultHandler = {
+            blinkCount: 0,
+            baseImage: "",
+            resultImage: "",
+            resultImageVisible: false
+        };
+    }
 
-	function handleResult(result) {
-		$scope.resultHandler.baseImage = ImageUtils.constructUrl(_.find(result, function (image) {
-			return StringUtils.contains(image, "base", true);
-		}));
+    $scope.runMeasurement = function () {
+        return MeasurementService.run().then(function (measurement) {
+            $scope.measurementHandler.active = true;
 
-		$scope.resultHandler.resultImage = ImageUtils.constructUrl(_.find(result, function (image) {
-			return !StringUtils.contains(image, "base");
-		}));
-	}
+            handleResult(measurement.result);
+            animateResult();
+        });
+    };
 
-	function animateResult() {
-		$timeout(function () {
-			$scope.resultHandler.resultImageVisible = !$scope.resultHandler.resultImageVisible;
+    function handleResult(result) {
+        $scope.resultHandler.baseImage = ImageUtils.constructUrl(_.find(result, function (image) {
+            return StringUtils.contains(image, "base", true);
+        }));
 
-			if ($scope.resultHandler.blinkCount++ <= self.blinkTimes) {
-				animateResult();
-			} else {
-				$scope.resultHandler.resultImageVisible = true;
-				$scope.resultHandler.blinkCount = 0;
-			}
+        $scope.resultHandler.resultImage = ImageUtils.constructUrl(_.find(result, function (image) {
+            return !StringUtils.contains(image, "base");
+        }));
+    }
 
-		}, 1000);
-	}
+    function animateResult() {
+        $timeout(function () {
+            $scope.resultHandler.resultImageVisible = !$scope.resultHandler.resultImageVisible;
+
+            if ($scope.resultHandler.blinkCount++ <= self.blinkTimes) {
+                animateResult();
+            } else {
+                $scope.resultHandler.resultImageVisible = true;
+                $scope.resultHandler.blinkCount = 0;
+            }
+
+        }, 1000);
+    }
 }
